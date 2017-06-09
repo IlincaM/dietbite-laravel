@@ -1,0 +1,453 @@
+/*
+ Theme Name:  Hiero Child
+ Description:  Hiero Child Theme
+ Author:       Moncea Ilinca
+ Template:     hiero
+ Text Domain:  hiero-child
+*/
+.site-header-blog{
+    background-color: black;
+}
+.text-header{
+    color: white;
+    text-align: center;
+}
+#main-navigation-blog li a {
+    margin: 0 -2px 0 0;
+    padding: 0 12px;
+    text-decoration: none;
+    float: right;
+    white-space: nowrap;
+}
+.sf-menu-b{
+    height: 46px;
+    text-align: center;
+}
+.sf-menu-b ul  {
+    margin: 0;
+    padding-top: 10px;
+    list-style: none;
+    display: inline-flex;
+}
+#main-navigation-blog li li a {
+    color: #ffabab;
+}
+#main-navigation-blog li a:hover,
+#main-navigation-blog li.sfHover > a
+{
+    color:#03D29A;
+
+}
+#main-navigation-blog li.current-menu-item a {
+    color:#03D29A;
+
+}
+#main-navigation-blog li.current-menu-item a { 
+    border-bottom: 1px solid     #03D29A;
+}
+#main-navigation-blog a {
+    color:grey;
+    outline: none;
+    -webkit-transition: all 0.14s ease 0s;
+    -moz-transition: all 0.14s ease 0s;
+    -o-transition: all 0.14s ease 0s;
+}
+.social .icon-2x {
+    font-size: 1em;
+}
+.full {
+    width: 100%;	
+}
+.gap {
+    height: 30px;
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.footer {
+    background: #EDEFF1;
+    height: auto;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+.footer p {
+    margin: 0;
+}
+.footer img {
+    max-width: 100%;
+}
+.footer ul {
+    font-size: 13px;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
+    color: #7F8C8D;
+}
+.footer ul li a {
+    padding: 0 0 5px 0;
+    display: block;
+}
+.footer a {
+    color: #78828D
+}
+.supportLi h4 {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: normal;
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+.social-footer{
+    text-align: center;
+}
+.social-footer li {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+    transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    list-style: none;
+    margin-right:  10px;
+    margin-left: 10px;
+}
+.social-footer li:hover {
+
+}
+.social-footer li a {
+    color: #EDEFF1;
+}
+
+
+.social-footer li a i {
+    font-size: 36px;
+    margin: 0 0 0 5px;
+    color: #EDEFF1;
+}
+.social-footer li a i:hover {
+    font-size: 36px;
+    margin: 0 0 0 5px;
+    color: #03d29a;
+}
+.footer-bottom {
+    background: #626B72;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
+.payments {
+    font-size: 1.5em;	
+}
+.float-div1{
+    float: left;
+}
+.float-div2{
+    float:right;
+}
+.footer-color{
+    background-color: #03D29A;
+}
+.row-footer{
+    margin-left: 0px;
+}
+.input-height{
+    height: 41px !important;
+    width: 288px!important;
+    background: transparent !important;
+    color: white !important;
+    border: 1px solid white !important;
+    font-family: Lora;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    font-weight: bold;
+}
+.btn-style{
+    background-color: #09BB8D;
+    border: none;
+    width: 111px;
+    margin-bottom: 10px;
+    height: 39px;
+    margin-left: 29px;
+}
+.h3-footer{
+    color: white;
+    padding: 40px 0 10px;
+    font-family: Lora;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    text-align: center;
+}
+.text-footer{
+    color: white;    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    font-weight: bold;
+}
+.copyright-footer{
+    color: white;
+    text-align: center;
+    margin-top: 23px;
+    margin-bottom: -19px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    font-weight: bold;
+}
+.footer-height-social{
+    height: 33px;
+}
+.footer-bottom-links{
+    background: red;
+}
+.menu-footer ul{
+    margin-right: 153px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    font-weight: bold;
+}
+.site-footer-style{
+    padding: 15px 0;
+    font-size: .9em;
+    background: #E5E8ED;
+}
+.btn-style:hover {
+    background: white;
+    border-color: #626B72;
+    color:#03d29a; 
+}
+.btn-style{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: #09bb8d;
+    border: medium none;
+    height: 39px;
+    margin-bottom: 10px;
+    margin-left: 19px;
+    width: 120px;
+}
+#menu-social-menu{
+    width: 158px;
+}
+#menu-blog-menu{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 26.4px;
+    width: 482px;
+}
+.body-style-color{
+    background-color: #E5E8ED;
+}
+#menu-blog-menu{
+    width: 516px;
+}
+
+.entry-title-style a{
+    font-family: Lora;
+}
+.entry-title-style a:hover{
+    color: #03d29a;
+    font-family: Lora;
+    text-decoration: none;
+
+}
+
+.comments-link { display: none; }
+.post .content-style{
+    width: 100%;
+    height: 212px;
+}
+.post .content-style-div{
+    height: 117px;
+}
+.style-read-more{
+    width: 139px;
+    height: 42px;
+    background: transparent;
+    padding: 10px;
+    padding-top: 9px;
+    text-align: center;
+    border-radius: 0px;
+    color: #b1b0b0;
+    font-weight: bold;
+    text-decoration: none;
+    border-style:solid;
+    border-color: #D1D4D9;
+    font-family: 'Montserrat', sans-serif;
+    float: right;
+    margin-top: 32px;
+    border-width:medium;
+
+}
+
+.style-read-more:visited {
+    color: #b1b0b0;
+}
+.style-read-more:hover{
+    color: #03d29a;
+    border-color: #03d29a;
+}
+/*.container-fluid-style{
+    height: 420px;
+}*/
+.post{
+    position: relative;
+    height: 100%;
+    width: 97%;
+}
+.post .entry-thumbnail {
+    float: left;
+    height: 221px;
+    margin: 0 20px 20px 0;
+    width: 377px;
+}
+.post .wp-post-image{
+    height: 100%;
+    width: 100%;
+}
+.color-hr{
+    color: grey !important;
+    border-width: 0.5px;
+    margin: 11px 0;
+}
+.post hr {
+    border-color: lightgray currentcolor;
+}
+.article-0 .entry-meta{
+    visibility: hidden;
+}
+.article-0 .style-read-more{
+    visibility: hidden;
+}
+.col-style{
+    height: 100%;
+}
+/*Style of the content*/
+.h2-content-style{
+    font-family: Lora;
+    color: black;
+    font-size: 25pt;
+}
+.h2-content-style a{
+    font-family: Lora;
+    color: black;
+    font-size: 25pt;
+}
+
+.h2-content-style a:hover{
+    font-family: Lora;
+    font-size: 25pt;
+    color: #03d29a;
+}
+
+
+
+/*First article style*/
+.article-0{
+    height: 427px;
+    width: 97%;
+}
+.article-0 .entry-thumbnail{
+    height: 100%;
+    width: 100%;
+}
+.article-0 .attachment-thumb-featured{
+    height: 100%;
+    width: 100%;
+}
+.article-0 .content-style{
+    position: relative;
+    bottom: 0;
+    width: 989px;
+    height: 0;
+    top: -150px;
+}
+.article-0 .h2-content-style{
+    bottom: 13%;
+    top:69%;
+    left: 24px;
+    position: absolute;
+}
+.article-0 .sumary-content-style{
+    bottom: 0;
+    height: 38px;
+    position: absolute;
+    width: 86%;
+    left: 22px;
+    top: 64px;
+    color: white;
+    font-size: 14pt;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.article-0 .h2-content-style a {
+    color: white;
+    text-decoration: none;
+    font-size: 35pt;
+    font-family: Lora;
+
+}
+.article-0 .h2-content-style a:hover {
+    color: #03d29a;
+    font-family: Lora;
+    text-decoration: none;
+}
+.container-fluid-content{
+    position: relative;
+}
+.site-content{
+    width: 100%;
+    margin: 0px !important;
+}
+/*Footer*/
+.padding-style{
+    padding-left: 13%;
+    padding-right: 13%;
+}
+.no-padding-style{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.content-area {
+    float: left;
+    width: 68%;
+}
+.site-sidebar {
+    float: left;
+
+}
+.site-sidebar {
+    float: left;
+    width: 300px;
+    margin: 0px !important;
+}

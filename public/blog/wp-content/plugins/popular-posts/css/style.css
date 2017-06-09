@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 23, 2017, 3:21:24 PM
+    Author     : ilinca
+*/
+.img-size-all{
+    height: 126px;
+    width: 178px;
+}
+.image-size-2 {
+    height: 167px ;
+    width: 300px;
+}
+.entry-summary-my-style{
+    float: right;
+    height: 0;
+    right: 2%;
+    top: -118px;
+    width: 111px;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.post-number-0{
+    height: 247px; 
+}
+.entry-thumbnail-my-style{
+    width: 178px;
+}
+.entry-thumbnail-1{
+    width: 300px;
+}
+.entry-summary-2{
+    float: left;
+    top:1px;
+    left: 0px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.widget-title span {
+    margin: 0 0 -1px;
+    display: inline-block;
+    line-height: 40px;
+    border-bottom: 3px solid transparent !important;
+    color: grey;
+}
+.widget-title {
+    margin: 0;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: none !important;
+}
+.widget-popular li{
+    border: none;
+    border-bottom: 1px solid transparent !important;
+
+}
+.widget-popular li a:hover {
+    color: #03d29a !important;
+}

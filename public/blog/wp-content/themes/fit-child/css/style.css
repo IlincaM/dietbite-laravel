@@ -1,0 +1,27 @@
+/*
+Theme Name: Fit+ Child
+Template: fit
+Author: ilinca
+Description: Get a closer look at our new Fit+ WordPress Theme which perfectly expresses the motion, spirit and power of sport. The home page is opening with the fullscreen image slider, bringing dynamic touch to the overall layout. Fit is suitable for creating sport clubs, fitness centers, personal websites, sport news or any other website where quality design and great functionality are of the essence. Take advantage of GT3 Themes!
+Version: 1.5.1493993231
+Updated: 2017-05-05 17:07:11
+
+*/
+
+.slider-home{
+    position: relative;
+    top: -121px;
+}
+
+/*.search_form {
+    border-color: yellow !important;
+}
+
+.highlighted_colored, .main_header, .socials_toggler:hover, .title::before, .search_oops::before, .sidepanel .sidebar_header::before, .strip_template figure a, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .box_month, .shortcode_button.btn_type5, .shortcode_button.btn_type1:hover, .price_item_btn a:hover, .most_popular .price_item_btn a, .most_popular .price_item_title, .icons_toggler:hover, .jspDrag, .fw_line a:hover, .widget_tag_cloud a:hover, .with_marker .headInModule::before, .shortcode_iconbox > a:hover .iconbox_wrapper .ico, .contentarea .time_table table tr:nth-child(2n+1) th:first-child {
+    background-color: yellow !important;
+}
+.main_header{
+    background-color: transparent !important;
+}
+.simple-post-top{
+border-color: yellow !important;}*/

@@ -1,0 +1,45 @@
+/*
+Theme Name: Fit+ Child
+Theme URI: http://gt3themes.com/wordpress-themes/fitplus/
+Template: fit
+Author: mad_dog
+Author URI: http://gt3themes.com
+Description: Get a closer look at our new Fit+ WordPress Theme which perfectly expresses the motion, spirit and power of sport. The home page is opening with the fullscreen image slider, bringing dynamic touch to the overall layout. Fit is suitable for creating sport clubs, fitness centers, personal websites, sport news or any other website where quality design and great functionality are of the essence. Take advantage of GT3 Themes!
+Version: 1.5.1493993231
+Updated: 2017-05-05 17:07:11
+
+*/
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+  margin: 2px 0 3px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 0.9em;
+  line-height: 0.9em;
+  opacity: 0;
+
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}

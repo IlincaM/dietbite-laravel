@@ -1,0 +1,412 @@
+/* NextGen Gallery */
+.font {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.contentarea .ngg-albumoverview {
+    margin-top: 0;
+}
+
+.contentarea .ngg-album {
+    border: none;
+    padding: 10px 0 9px 0;
+    border-bottom: 1px #ededed solid;
+    margin-bottom: 10px;
+}
+
+.dark_version .contentarea .ngg-album {
+    border-bottom: 1px #202020 solid;
+}
+
+.contentarea .ngg-albumtitle {
+    line-height: 21px;
+    margin-bottom: 13px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.contentarea .ngg-albumtitle a {
+    line-height: 21px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.contentarea .ngg-albumcontent {
+    position: relative;
+}
+
+.contentarea .ngg-description {
+    padding-left: 160px;
+    min-height: 128px;
+}
+
+.contentarea .ngg-thumbnail {
+    float: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.contentarea .ngg-thumbnail img {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 140px;
+    height: 110px;
+    vertical-align: top;
+}
+
+.contentarea .ngg-album-link,
+.contentarea .ngg-thumbnail,
+.contentarea .ngg-gallery-thumbnail {
+    background: #6d8583;
+}
+
+.contentarea .ngg-album-link img,
+.contentarea .ngg-thumbnail img,
+.contentarea .ngg-gallery-thumbnail img {
+    transition: opacity 400ms;
+    -webkit-transition: opacity 400ms;
+}
+
+.contentarea .ngg-album-link a:hover img,
+.contentarea .ngg-thumbnail a:hover img,
+.contentarea .ngg-gallery-thumbnail a:hover img {
+    opacity: 0.3;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+}
+
+.contentarea .ngg-album-compact {
+    margin: 15px 16px 0 0 !important;
+    padding: 0 0 5px 0 !important;
+    width: 140px;
+    vertical-align: top;
+    float: none;
+    display: inline-block;
+}
+
+.contentarea .ngg-album-compactbox {
+    border: 1px #cdcdcd solid;
+    border-radius: 0;
+    margin: 0 !important;
+    padding: 5px !important;
+}
+
+.dark_version .contentarea .ngg-album-compactbox {
+    background: #3e4141;
+}
+
+.dark_version .contentarea .ngg-album-compactbox {
+    border: 1px #141414 solid;
+}
+
+.contentarea .ngg-album-compactbox:before {
+    border: 1px solid #cdcdcd;
+    border-top: 0;
+    border-radius: 0;
+    bottom: -4px;
+    content: "";
+    left: 2px;
+    position: absolute;
+    right: 2px;
+    top: auto;
+    z-index: 5;
+    height: 2px;
+    background: #fff;
+}
+
+.contentarea .ngg-album-compactbox:after {
+    border: 1px solid #cdcdcd;
+    border-top: 0;
+    border-radius: 0;
+    bottom: -7px;
+    content: "";
+    left: 4px;
+    position: absolute;
+    right: 4px;
+    top: auto;
+    z-index: 10;
+    height: 2px;
+    background: #fff;
+}
+
+.dark_version .contentarea .ngg-album-compactbox:before,
+.dark_version .contentarea .ngg-album-compactbox:after {
+    border-color: #141414;
+    background: #3e4141;
+}
+
+.contentarea .ngg-album-compactbox .Thumb {
+    border: 0 !important;
+    vertical-align: top;
+    width: 128px;
+    height: 98px;
+}
+
+.contentarea .ngg-album-compact h4 {
+    line-height: 21px;
+    margin: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+    padding: 11px 5px 4px 5px;
+    text-align: center;
+    word-break: normal;
+}
+
+.contentarea .ngg-album-compact h4 a {
+    line-height: 21px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.contentarea .ngg-album-compact h4 .ngg-album-desc {
+    height: auto;
+}
+
+.fake_wrap {
+    margin-right: -20px;
+}
+
+.contentarea .ngg-tagcloud {
+    padding-top: 15px;
+}
+
+.contentarea .ngg-tagcloud .wp-tag-cloud li {
+    display: inline-block;
+    float: none;
+    height: auto;
+    list-style: none;
+    margin: 0 3px 6px 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.contentarea .ngg-tagcloud .wp-tag-cloud li a {
+    display: block;
+    height: auto;
+    vertical-align: top;
+    padding: 8px 16px;
+    line-height: 20px;
+    background: #e1e1e1;
+    font-size: 13px !important;
+    color: #777979;
+    font-weight: 400;
+    transition: opacity 250ms;
+    -webkit-transition: opacity 250ms;
+}
+
+.dark_version .contentarea .ngg-tagcloud .wp-tag-cloud li a {
+    background: #3e4141;
+    color: #babebe;
+}
+
+.contentarea .ngg-imagebrowser h3 {
+    line-height: 21px;
+    margin: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Titillium Web', sans-serif;
+    padding: 12px 0 25px 0;
+    text-align: left;
+    word-break: normal;
+}
+
+.contentarea .ngg-imagebrowser .pic {
+    border: none;
+    margin-bottom: 17px;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.contentarea .ngg-imagebrowser .pic a {
+    padding: 0;
+    margin: 0;
+}
+
+.contentarea .ngg-imagebrowser .pic img {
+    vertical-align: top;
+}
+
+.contentarea .ngg-imagebrowser-nav {
+    padding: 0;
+}
+
+.contentarea .ngg-imagebrowser-desc {
+    padding-top: 17px;
+    border-top: 1px #ededed solid;
+}
+
+.dark_version .contentarea .ngg-imagebrowser-desc {
+    border-top: 1px #202020 solid;
+}
+
+.contentarea .ngg-imagebrowser-nav .back,
+.contentarea .ngg-imagebrowser-nav .next {
+    border: 0;
+    float: left;
+    padding: 0;
+    display: block;
+    line-height: 20px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.contentarea .ngg-imagebrowser-nav .next {
+    float: right;
+}
+
+.contentarea .ngg-imagebrowser-nav .back a,
+.contentarea .ngg-imagebrowser-nav .next a {
+    display: block;
+    margin-left: -5px;
+    line-height: 20px;
+    position: relative;
+    color: #777979;
+}
+
+.dark_version .contentarea .ngg-imagebrowser-nav .back a,
+.dark_version .contentarea .ngg-imagebrowser-nav .next a {
+    color: #a6b0af;
+}
+
+.contentarea .ngg-imagebrowser-nav .next a {
+    margin-left: auto;
+    margin-right: -5px;
+    font-weight: normal;
+}
+
+.contentarea .ngg-imagebrowser-nav .back a:hover,
+.contentarea .ngg-imagebrowser-nav .next a:hover {
+    color: #6d8583;
+}
+
+.dark_version .contentarea .ngg-imagebrowser-nav .back a:hover,
+.dark_version .contentarea .ngg-imagebrowser-nav .next a:hover {
+    color: #6d8583;
+}
+
+.contentarea .ngg-imagebrowser-nav .back a:before,
+.contentarea .ngg-imagebrowser-nav .next a:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: #fff;
+    content: '';
+    z-index: 10;
+}
+
+.dark_version .contentarea .ngg-imagebrowser-nav .back a:before,
+.dark_version .contentarea .ngg-imagebrowser-nav .next a:before {
+    background: #141414;
+}
+
+.contentarea .ngg-imagebrowser-nav .next a:before {
+    left: auto;
+    right: 0;
+}
+
+.contentarea .ngg-imagebrowser-nav .back a:after,
+.contentarea .ngg-imagebrowser-nav .next a:after {
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    content: "\f104";
+    z-index: 20;
+    line-height: 20px;
+    font-family: 'FontAwesome';
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.contentarea .ngg-imagebrowser-nav .next a:after {
+    left: auto;
+    right: 5px;
+    content: "\f105";
+}
+
+.contentarea .ngg-imagebrowser-nav .counter {
+    font-size: 13px !important;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.contentarea .slideshowlink {
+    padding: 8px 0 34px 0;
+}
+
+.contentarea .slideshowlink a {
+    color: #777979;
+    font-weight: normal;
+}
+
+.dark_version .contentarea .slideshowlink a {
+    color: #a6b0af;
+}
+
+.contentarea .slideshowlink a:before {
+    content: "\f00a";
+    font-family: 'FontAwesome';
+    margin-right: 7px;
+    font-weight: normal;
+}
+
+.contentarea .slideshowlink a:hover {
+    color: #6d8583;
+}
+
+.dark_version .contentarea .slideshowlink a:hover {
+    color: #6d8583;
+}
+
+.contentarea .ngg-galleryoverview .slideshowlink a:before {
+    content: "\f03e";
+    font-weight: normal;
+}
+
+.contentarea .ngg-gallery-thumbnail-box {
+    margin: 0 17px 20px 0 !important;
+    padding: 0 !important;
+    width: 140px;
+    vertical-align: top;
+    float: none;
+    display: inline-block;
+}
+
+.contentarea .ngg-gallery-thumbnail {
+    float: none;
+}
+
+.contentarea .ngg-gallery-thumbnail img {
+    background: #FFFFFF;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 140px;
+    height: 110px;
+    vertical-align: top;
+}
+
+.dark_version .contentarea .ngg-gallery-thumbnail img {
+    background: #3e4141;
+}
+
+
+
+

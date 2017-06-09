@@ -1,0 +1,582 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Hiero\n"
+"POT-Creation-Date: 2015-03-31 10:22+0200\n"
+"PO-Revision-Date: 2015-03-31 10:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n\n"
+"X-Poedit-SearchPath-0: D:\\Programe\\InstantWP\\InstantWP_4.3.1\\iwpserver"
+"\\htdocs\\wordpress\\wp-content\\themes\\hiero\n"
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/404.php:15
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/404.php:19
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/404.php:27
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/404.php:44
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:31
+#, php-format
+msgid "Author: %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:39
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:42
+#, php-format
+msgid "Month: %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:45
+#, php-format
+msgid "Year: %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:48
+msgid "Asides"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:51
+msgid "Images"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:54
+msgid "Videos"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:57
+msgid "Quotes"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:60
+msgid "Links"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/archive.php:63
+msgid "Archives"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/comments.php:50
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/comments.php:51
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/comments.php:61
+msgid "Comments are closed."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-page.php:24
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:30
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:37
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:53
+msgid "Pages:"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:10
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:10
+msgid "0"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:10
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:10
+msgid "1"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:10
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:10
+msgid "%"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:39
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:42
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:44
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:53
+msgid ", "
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:47
+#, php-format
+msgid "<span class=\"tags-links\"><i class=\"ico-tags\"></i> %2$s</span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:53
+#, php-format
+msgid ""
+"<span class=\"cat-links\"><i class=\"ico-folder\"></i> %1$s</span><span "
+"class=\"tags-links\"><i class=\"ico-tags\"></i> %2$s</span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content-single.php:55
+#, php-format
+msgid "<span class=\"cat-links\"><i class=\"ico-folder\"></i> %1$s</span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:36
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/extras.php:77
+msgid "Continue Reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:48
+#, php-format
+msgid "<i class=\"ico-folder\"></i> %1$s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/content.php:57
+#, php-format
+msgid "<i class=\"ico-tags\"></i> %1$s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:52
+msgid "Main Menu"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:63
+msgid "Sidebar"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:71
+msgid "Header"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:79
+msgid "Sub Footer 1"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:87
+msgid "Sub Footer 2"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:95
+msgid "Sub Footer 3"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/functions.php:103
+msgid "Sub Footer 4"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:23
+#, php-format
+msgid ""
+"Published <span class=\"entry-date\"><time class=\"entry-date\" datetime="
+"\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to full-size "
+"image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" "
+"rel=\"gallery\">%8$s</a>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:60
+msgid ""
+"<span class=\"meta-nav\"><i class=\"ico-left-open\"></i></span> Previous"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:61
+msgid "Next <span class=\"meta-nav\"><i class=\"ico-right-open\"></i></span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:67
+#, php-format
+msgid ""
+"<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a "
+"comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" "
+"title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:69
+#, php-format
+msgid ""
+"Comments are closed, but you can leave a trackback: <a class=\"trackback-link"
+"\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback"
+"\">Trackback URL</a>."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:71
+msgid ""
+"Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond"
+"\" title=\"Post a comment\">post a comment</a>."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/image.php:73
+msgid "Both comments and trackbacks are currently closed."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/no-results.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/no-results.php:19
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/no-results.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/no-results.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:21
+msgid "General"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:38
+msgid "Upload your logo"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:59
+msgid "Upload your favicon"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:79
+msgid "Upload your Apple Touch Icon (144x144 pixels)"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:99
+msgid "Upload your Apple Touch Icon (114x114 pixels)"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:119
+msgid "Upload your Apple Touch Icon (72x72 pixels)"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:139
+msgid "Upload your Apple Touch Icon (57x57 pixels)"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:150
+msgid "Content/Excerpt"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:151
+msgid "Check the boxes below to display the content instead of the excerpt."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:166
+msgid "Blog index"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:181
+msgid "Archives, tags, categories, author"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:196
+msgid "Search"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:205
+msgid "Single posts/pages"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:220
+msgid "Check this box to show featured images on single posts"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:235
+msgid "Check this box to show featured images on pages"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:250
+msgid "Check this box to hide the author bio on single posts."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:269
+msgid "Main color"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:290
+msgid "Site title"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:311
+msgid "Site description"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:332
+msgid "Entry title"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:353
+msgid "Text"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:364
+msgid "Fonts"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:403
+msgid "Select your desired font for the headings."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/customizer.php:420
+msgid "Select your desired font for the body."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/extras.php:135
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:34
+msgid "Post navigation"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:38
+msgid "<i class=\"ico-left-open\"></i>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:39
+msgid "<i class=\"ico-right-open\"></i>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:44
+msgid ""
+"<span class=\"meta-nav\"><i class=\"ico-left-open\"></i></span> Older "
+"Articles"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:48
+msgid ""
+"Newer Articles <span class=\"meta-nav\"><i class=\"ico-right-open\"></i></"
+"span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:71
+msgid "Pingback:"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:71
+msgid "Edit"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:89
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:94
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:98
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:177
+#, php-format
+msgid ""
+"<span class=\"posted-on\">Posted on %1$s</span><span class=\"byline\"> by "
+"%2$s</span>"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/template-tags.php:185
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:23
+msgid "Displays your Flickr photos."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:37
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-media-embed.php:37
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:37
+msgid "Title"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:44
+msgid "Flickr ID"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:49
+msgid "Number of Photos"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:60
+msgid "Type (user or group)"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-flickr-stream.php:69
+msgid "Display"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-media-embed.php:23
+msgid ""
+"Display media (video/slideshow) widget, support many sites including "
+"YouTube, Vimeo, Flickr, etc."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-media-embed.php:44
+msgid "Embed URL"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-media-embed.php:49
+msgid "Embed width in pixels"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-media-embed.php:54
+msgid "Description"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:23
+msgid "A widget that shows post/page preview"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:39
+msgid "Post ID"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:44
+msgid "Show post title"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:49
+msgid "Show featured image"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:54
+msgid "Show excerpt"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:59
+msgid "Read more link text"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-preview-post.php:60
+msgid "Leave empty for no link"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:23
+msgid "Display links to your social network profiles, enter full profile URLs"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:44
+msgid "Twitter"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:49
+msgid "Facebook"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:54
+msgid "LinkedIn"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:59
+msgid "Google+"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:64
+msgid "Pinterest"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:69
+msgid "YouTube"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:74
+msgid "Vimeo"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:79
+msgid "Flickr"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:84
+msgid "Dribbble"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:89
+msgid "Tumblr"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:94
+msgid "Instagram"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:99
+msgid "Last.fm"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-social-icons.php:104
+msgid "SoundCloud"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:23
+msgid ""
+"Display a tabbed content widget for your popular posts, recent posts and "
+"popular tags."
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:37
+msgid "Posts to Show"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:42
+msgid "Tags to Show"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:68
+msgid "Popular"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:69
+msgid "Latest"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:70
+msgid "Tags"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:85
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:90
+msgid "No Comments"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:85
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:90
+msgid "1 Comment"
+msgstr ""
+
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:85
+#: D:\Programe\InstantWP\InstantWP_4.3.1\iwpserver\htdocs\wordpress\wp-content\themes\hiero/inc/widgets/widget-tabs.php:90
+msgid "% Comments"
+msgstr ""
