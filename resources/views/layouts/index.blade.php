@@ -1,12 +1,12 @@
-@extends('master')
+@extends('layouts.master')
 
 
 
 @section('content')
 
 
-Index page
 
+@include('layouts.form-bmr') 
 
 @endsection
 
