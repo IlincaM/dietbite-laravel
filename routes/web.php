@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.index');
-});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'BmrController@index');
 Route::get('/test', 'TestController@index');
 
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');
