@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 use Services\Bmr\BmrService;
+use Repositories\Bmr\BmrResultRepository;
+use Repositories\Bmr\bmrInterface;
 
 class BmrController extends Controller {
 
     public function index() {
-         $data=new BmrService();
-        return view('layouts.index')->with('data',$data->getDataFormBmr());
+        $data = new BmrService();
+        return view('layouts.index')->with('data', $data->getDataFormBmr());
     }
-    public function storeBmrCalculation(){
-       $data = new BmrService();
-       var_dump($data);
+
+    public function storeBmrCalculation(Request $request) {
+        $data = new BmrService();
+        $data->storeBmrData($data);
+        var_dump($data);die();
+       
     }
 
 }
