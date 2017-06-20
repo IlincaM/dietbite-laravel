@@ -33,31 +33,31 @@ echo '</pre>';
 <br>
 @foreach ($bmrActivity as $bmrActivityValues)
 
-{{ Form::label('sedentary', 'Sedentary') }}
-{{ Form::radio('sedentary', $bmrActivityValues["sedentary"]) }}
-{{ Form::label('lightActivity', 'Light Activity') }}
-{{ Form::radio('lightActivity', $bmrActivityValues["light_activity"]) }}
-{{ Form::label(' active', ' Active') }}
-{{ Form::radio(' active', $bmrActivityValues["normal_active"]) }}
-{{ Form::label(' veryActive ', ' Very Active ') }}
-{{ Form::radio(' veryActive ', $bmrActivityValues["very_active"]) }}
+{{ Form::label('activityLevel', 'Sedentary') }}
+{{ Form::radio('activityLevel', $bmrActivityValues["sedentary"]) }}
+{{ Form::label('activityLevel', 'Light Activity') }}
+{{ Form::radio('activityLevel', $bmrActivityValues["light_activity"]) }}
+{{ Form::label('activityLevel', ' Active') }}
+{{ Form::radio('activityLevel', $bmrActivityValues["normal_active"]) }}
+{{ Form::label('activityLevel', ' Very Active ') }}
+{{ Form::radio('activityLevel', $bmrActivityValues["very_active"]) }}
 @endforeach
 
 <hr>
-{{ Form::label('activity', 'Exercise Level') }}
+{{ Form::label('exercise', 'Exercise Level') }}
 <br>
 @foreach ($bmrExercise as $bmrExerciseValues)
 
-{{ Form::label('none', 'None') }}
-{{ Form::radio('none', $bmrExerciseValues["none"]) }}
-{{ Form::label('light', 'Light') }}
-{{ Form::radio('light', $bmrExerciseValues["light"]) }}
-{{ Form::label(' moderate', 'Moderate') }}
-{{ Form::radio('moderate', $bmrExerciseValues["moderate"]) }}
-{{ Form::label('difficult ', ' Difficult ') }}
-{{ Form::radio('difficult ', $bmrExerciseValues["difficult"]) }}
-{{ Form::label('intense ', 'Intense') }}
-{{ Form::radio('intense ', $bmrExerciseValues["intense"]) }}
+{{ Form::label('exerciseLevel', 'None') }}
+{{ Form::radio('exerciseLevel', $bmrExerciseValues["none"]) }}
+{{ Form::label('exerciseLevel', 'Light') }}
+{{ Form::radio('exerciseLevel', $bmrExerciseValues["light"]) }}
+{{ Form::label('exerciseLevel', 'Moderate') }}
+{{ Form::radio('exerciseLevel', $bmrExerciseValues["moderate"]) }}
+{{ Form::label('exerciseLevel', ' Difficult ') }}
+{{ Form::radio('exerciseLevel', $bmrExerciseValues["difficult"]) }}
+{{ Form::label('exerciseLevel', 'Intense') }}
+{{ Form::radio('exerciseLevel', $bmrExerciseValues["intense"]) }}
 @endforeach
 <hr>
 {{ Form::submit('Calculate') }}

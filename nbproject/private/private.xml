@@ -8,6 +8,7 @@
             <file>file:/C:/xampp/htdocs/dietbite-laravel/app/models/services/Bmr/BmrResultServiceServiceProvider.php</file>
             <file>file:/C:/xampp/htdocs/dietbite-laravel/app/models/services/Bmr/BmrService.php</file>
             <file>file:/C:/xampp/htdocs/dietbite-laravel/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/dietbite-laravel/app/Http/Requests/StoreBmrResult.php</file>
         </group>
     </open-files>
 </project-private>

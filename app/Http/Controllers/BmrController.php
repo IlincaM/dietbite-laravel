@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Services\Bmr\BmrService;
 use Repositories\Bmr\BmrResultRepository;
 use Repositories\Bmr\bmrInterface;
+use App\Http\Requests\StoreBmrResult;
 
 class BmrController extends Controller {
 
@@ -14,11 +15,9 @@ class BmrController extends Controller {
         return view('layouts.index')->with('data', $data->getDataFormBmr());
     }
 
-    public function storeBmrCalculation(Request $request) {
-        $data = new BmrService();
-        $data->storeBmrData($data);
-        var_dump($data);die();
-       
+    public function storeBmrCalculation(Request $request, BmrService $bmrService) {
+
+        $bmrService->getBmrData($request);
     }
 
 }
