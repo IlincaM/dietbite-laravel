@@ -27,7 +27,9 @@ class BmrResultRepository implements bmrInterface {
     public function storeBmrResult($data) {
         $dataArray = (array) $data;
         $dataResut = new BmrResult($dataArray);
-        return $dataResut->save();
+         $dataResut->save();
+//         var_dump($dataResut->weight);die();
+        return $dataResut;
     }
 
 }

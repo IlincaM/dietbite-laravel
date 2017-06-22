@@ -155,6 +155,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Repositories\Bmr\bmrResultRepositoryServiceProvider::class,
         Services\Bmr\BmrResultServiceServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -203,5 +204,6 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'BmrResult' => 'Services\Bmr\BmrFacade',
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
     ],
 ];

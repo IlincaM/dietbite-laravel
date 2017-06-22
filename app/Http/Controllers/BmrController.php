@@ -15,9 +15,12 @@ class BmrController extends Controller {
         return view('layouts.index')->with('data', $data->getDataFormBmr());
     }
 
-    public function storeBmrCalculation(Request $request, BmrService $bmrService) {
+    public function storeBmrCalculation(StoreBmrResult $request, BmrService $bmrService) {
 
-        $bmrService->getBmrData($request);
+      $bmrResultObject= $bmrService->getBmrData($request);
+      $bmrResult= $bmrResultObject->bmr_result;
+      return view('layouts.bmr-calculation')->with('bmrResult',$bmrResult);
+       
     }
 
 }

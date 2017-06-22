@@ -22,8 +22,13 @@ class StoreBmrResult extends FormRequest {
      */
     public function rules() {
         return [
-            'age' => 'required|unique:posts|max:255',
-            'weight' => 'required'
+            'age' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'goal_weight' => 'required|numeric',
+            'height' => 'required|numeric',
+            'gender' => 'required',
+            'activityLevel' => 'required',
+            'exerciseLevel' => 'required',
         ];
     }
 

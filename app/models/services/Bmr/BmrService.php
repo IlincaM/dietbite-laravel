@@ -23,7 +23,7 @@ class BmrService {
         return $data;
     }
 
-    public function getBmrData(Request $request) {
+    public function getBmrData(StoreBmrResult $request) {
         $data = new BmrResultRepository();
         $data->age = $request->age;
         $data->weight = $request->weight;
