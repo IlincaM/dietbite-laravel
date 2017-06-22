@@ -1,11 +1,7 @@
 
 <?php
-echo '<pre>';
 $bmrActivity = json_decode($data["bmr_activity"], true);
-$bmrExercise = json_decode($data["bmr_exercise"],true);
-
-echo '</pre>';
-//
+$bmrExercise = json_decode($data["bmr_exercise"], true);
 ?>
 {!! Form::open(['url' => 'calculate']) !!}
 
