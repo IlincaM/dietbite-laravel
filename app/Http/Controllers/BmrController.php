@@ -16,11 +16,12 @@ class BmrController extends Controller {
     }
 
     public function storeBmrCalculation(StoreBmrResult $request, BmrService $bmrService) {
-
-      $bmrResultObject= $bmrService->getBmrData($request);
-      $bmrResult= $bmrResultObject->bmr_result;
-      return view('layouts.bmr-calculation')->with('bmrResult',$bmrResult);
-       
+            $bmrResultObject= $bmrService->getBmrData($request);
+        return response()->json($bmrResultObject);
+//  return    $bmrResultObject= $bmrService->getBmrData($request);
+//      $bmrResult= $bmrResultObject->bmr_result;
+//      return view('layouts.bmr-calculation')->with('bmrResult',$bmrResult);
+//       
     }
 
 }
