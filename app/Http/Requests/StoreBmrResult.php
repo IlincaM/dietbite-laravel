@@ -21,7 +21,8 @@ class StoreBmrResult extends FormRequest {
      * @return array
      */
     public function rules() {
-        return [
+        
+        return $rules= [
             'age' => 'required|numeric',
             'weight' => 'required|numeric',
             'goal_weight' => 'required|numeric',

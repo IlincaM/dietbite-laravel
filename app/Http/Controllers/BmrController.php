@@ -16,8 +16,18 @@ class BmrController extends Controller {
     }
 
     public function storeBmrCalculation(StoreBmrResult $request, BmrService $bmrService) {
-            $bmrResultObject= $bmrService->getBmrData($request);
-        return response()->json($bmrResultObject);
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->fails()) {
+
+            //pass validator errors as errors object for ajax response
+
+            return response()->json(['errors' => $validator->errors()]);
+        } else {
+            $bmrResultObject = $bmrService->getBmrData($request);
+            return response()->json($bmrResultObject);
+        }
+
 //  return    $bmrResultObject= $bmrService->getBmrData($request);
 //      $bmrResult= $bmrResultObject->bmr_result;
 //      return view('layouts.bmr-calculation')->with('bmrResult',$bmrResult);
