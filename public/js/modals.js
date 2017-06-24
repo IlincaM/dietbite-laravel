@@ -15,27 +15,31 @@ $(document).ready(function () {
             data: $('form').serialize(),
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                var result = data.bmr_result + ' kcal';
+                $(".bmr-result-div").show("slow");
+                $("#bmr_result").text(result);
+                $(".use_this_result").click(function () {
+                     $("#cal_input").attr("value", data.bmr_result).val(data.bmr_result);
 
+
+                });
             },
-            error: function (data) {
-                if (data.status === 422) {
-                    //process validation errors here.
-                    var errors = data.responseJSON; //this will get the errors response data.
-                    //show them somewhere in the markup
-                    //e.g
-                    for (datos in errors) {
-                        console.log(data.responseJSON[datos]);
-                        errors += data.responseJSON[datos] + '<br>';
+            error: function (reject) {
+                if (reject.status === 422) {
+                    var errors = $.parseJSON(reject.responseText);
 
-                    }
-                    $('#response').show().html(errors);
+                    $.each(errors, function (key, val) {
+                        $("#" + key + "_error").text(val[0]);
+                    });
                 }
+
             }
         });
 
 
     });
+
+
 
 });
 
