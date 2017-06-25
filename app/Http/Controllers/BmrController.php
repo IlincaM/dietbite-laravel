@@ -7,6 +7,7 @@ use Services\Bmr\BmrService;
 use Repositories\Bmr\BmrResultRepository;
 use Repositories\Bmr\bmrInterface;
 use App\Http\Requests\StoreBmrResult;
+use Khill\Lavacharts\Lavacharts;
 
 class BmrController extends Controller {
 
@@ -16,10 +17,9 @@ class BmrController extends Controller {
     }
 
     public function storeBmrCalculation(StoreBmrResult $request, BmrService $bmrService) {
-     $bmrResultObject = $bmrService->getBmrData($request);
-            return response()->json($bmrResultObject,200);
+        $bmrResultObject = $bmrService->getBmrData($request);
+        return response()->json($bmrResultObject, 200);
 //      return view('layouts.bmr-calculation')->with('bmrResult',$bmrResult);
-       
     }
 
 }

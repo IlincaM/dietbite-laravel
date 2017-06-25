@@ -73,7 +73,7 @@
                 <span id="exerciseLevel_error"></span>
                 <hr>
                 <br>
-                <input name="submit" type="submit" class="btn btn-success" value="Calculate">
+                <input name="submit" type="submit" class="submitCalculator btn btn-success" value="Calculate">
                 {!! Form::close() !!}
                 <div class="bmr-result-div">
                     <table class="table table-striped">

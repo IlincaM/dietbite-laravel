@@ -6,7 +6,7 @@ $(document).ready(function () {
         }
     });
 
-    $('form').on('submit', function (e) {
+    $('.submitCalculator').click(function (e) {
         e.preventDefault();
         $.ajax({
 

@@ -21,3 +21,4 @@ Route::get('/test', 'TestController@index');
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');
 Route::post('login', 'Auth\LoginController@authenticate')->name('login');
 Route::post('/calculate', 'BmrController@storeBmrCalculation');
+Route::post('/charts', 'ChartsController@store');
