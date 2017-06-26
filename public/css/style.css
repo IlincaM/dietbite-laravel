@@ -21,6 +21,7 @@ and open the template in the editor.
 .not_know_div {
     display: inline-block;
     vertical-align: top;
+    width: 177px;
 }
 #cal_input {
     width: 105px;
@@ -28,7 +29,7 @@ and open the template in the editor.
     font-size: 18px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: -2px;
+    margin-top: -1px;
     margin-bottom: 6px;
 }
 .not_know{
@@ -46,4 +47,19 @@ and open the template in the editor.
 .inline_auto {
     display: inline;
     width: auto;
+}
+#hidden_goal_weight{
+    visibility: hidden;
+}
+.meals{
+    width: 134px;
+
+    
+}
+.start_question_diet{
+    top: 6px;
+}
+.noPadding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }

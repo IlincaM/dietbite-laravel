@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
+use Services\Charts\ChartsService;
 
 class ChartsController extends Controller {
 
@@ -31,26 +32,9 @@ class ChartsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $bmrResult = $request->cal_input;
-        var_dump($bmrResult);
-       $lava = new Lavacharts;
-        $reasons = $lava->DataTable();
-        $reasons->addStringColumn('Reasons')
-                ->addNumberColumn('Percent')
-                ->addRow(['Check Reviews', 5])
-                ->addRow(['Watch Trailers', 2])
-                ->addRow(['See Actors Other Work', 4])
-                ->addRow(['Settle Argument', 89]);
-        $pieChart = $lava->PieChart('IMDB', $reasons, [
-            'title' => 'Reasons I visit IMDB',
-            'is3D' => true,
-            'slices' => [
-                    ['offset' => 0.2],
-                    ['offset' => 0.25],
-                    ['offset' => 0.3]
-            ]
-        ]);
+    public function store(Request $request, ChartsService $chartService) {
+        $lava = new ChartsService();
+        $lava = $chartService->makeChart($request);
 
         return view('layouts.charts', ['lava' => $lava]);
     }

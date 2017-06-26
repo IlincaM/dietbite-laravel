@@ -11,7 +11,7 @@
         "laravelcollective/html": "^5.4.0",
         "symfony/psr-http-message-bridge": "^1.0",
         "zendframework/zend-diactoros": "^1.4",
-        "khill/lavacharts" : "3.0.*"
+        "khill/lavacharts": "3.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -25,7 +25,9 @@
             "app/models/services",
             "app/models/services/Bmr",
             "app/models/repositories",
-            "app/models/repositories/Bmr"
+            "app/models/repositories/Bmr",
+            "app/models/services/Charts"
+
         ],
         "psr-4": {
             "App\\": "app/"

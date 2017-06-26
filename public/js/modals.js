@@ -16,13 +16,17 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 var result = data.bmr_result + ' kcal';
+                var goal_weight = $('#goal_weight').val();
+                console.log(goal_weight);
+                $('#hidden_goal_weight').val(goal_weight);
                 $(".bmr-result-div").show("slow");
                 $("#bmr_result").text(result);
                 $(".use_this_result").click(function () {
-                     $("#cal_input").attr("value", data.bmr_result).val(data.bmr_result);
+                    $("#cal_input").attr("value", data.bmr_result).val(data.bmr_result);
 
 
                 });
+
             },
             error: function (reject) {
                 if (reject.status === 422) {
@@ -38,7 +42,6 @@ $(document).ready(function () {
 
 
     });
-
 
 
 });
