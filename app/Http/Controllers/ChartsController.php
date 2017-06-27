@@ -35,7 +35,6 @@ class ChartsController extends Controller {
     public function store(Request $request, ChartsService $chartService) {
         $lava = new ChartsService();
         $lava = $chartService->makeChart($request);
-
         return view('layouts.charts', ['lava' => $lava]);
     }
 
