@@ -7,7 +7,6 @@ use App\Http\Requests\StoreBmrResult;
 use Entities\BmrResult;
 use stdClass;
 use Illuminate\Http\Request;
-
 /**
  * Description of BmrResultRepository
  * Bmr repository, containing 
@@ -28,6 +27,7 @@ class BmrResultRepository implements bmrInterface {
         $dataArray = (array) $data;
         $dataResut = new BmrResult($dataArray);
          $dataResut->save();
+       
 //         var_dump($dataResut->weight);die();
         return $dataResut;
     }

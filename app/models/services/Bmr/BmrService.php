@@ -11,6 +11,8 @@ use Repositories\Bmr\BmrResultRepository;
 use Repositories\Bmr\bmrInterface;
 use Carbon\Carbon;
 use App\Http\Requests\StoreBmrResult;
+use Illuminate\Support\Facades\Auth;
+use Services\User\UserService;
 
 class BmrService {
 
@@ -35,6 +37,7 @@ class BmrService {
         $dt = Carbon::now();
         $data->created_at = $dt->toDateString();
         $data->updated_at = $dt->toDateString();
+        
 
         if ($data->gender == "male") {
             (float) $activityAndExercise = $data->activityLevel + $data->exerciseLevel;
@@ -46,8 +49,16 @@ class BmrService {
             (float) $result = $calculat * $activityAndExercise;
         }
         $data->bmr_result = $result;
-        
-
+        if(Auth::user() == true){
+            $data->user_id =Auth::user()->id;
+            
+        } else {
+            $fakeUserCreate= new UserService();
+            $fakeUserCreate= $fakeUserCreate->makeUserFake();
+            Auth::login($fakeUserCreate);
+            $data->user_id =$fakeUserCreate->id;
+        }
+ 
         return  $data->storeBmrResult($data);
     }
 
