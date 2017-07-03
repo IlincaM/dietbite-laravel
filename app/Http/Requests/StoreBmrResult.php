@@ -22,7 +22,7 @@ class StoreBmrResult extends FormRequest {
      */
     public function rules() {
         
-        return $rules= [
+        return [
             'age' => 'required|numeric',
             'weight' => 'required|numeric',
             'goal_weight' => 'required|numeric',
@@ -32,5 +32,4 @@ class StoreBmrResult extends FormRequest {
             'exerciseLevel' => 'required',
         ];
     }
-
 }

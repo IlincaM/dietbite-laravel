@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Services\Bmr\BmrService;
 use Repositories\Bmr\BmrResultRepository;
-use Repositories\Bmr\bmrInterface;
+use Repositories\Bmr\BmrInterface;
 use App\Http\Requests\StoreBmrResult;
 use Khill\Lavacharts\Lavacharts;
 

@@ -6,19 +6,26 @@ use App\User;
 use Illuminate\Http\Request;
 
 class UserService {
-protected $userId;
 
+    /**
+     * @var int
+     */
+    protected $userId;
+
+    /**
+     * 
+     * @return type
+     */
     public function makeUserFake() {
-        $userFake = factory(User::class)->create();
-        return $userFake;
+        return factory(User::class)->create();
     }
-  public function getId()
-    {
+
+    public function getId() {
         return $this->userId;
     }
 
-    public function setId($id)
-    {
+    public function setId($id) {
         $this->userId = $id;
     }
+
 }

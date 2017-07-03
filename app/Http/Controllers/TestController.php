@@ -24,7 +24,7 @@ class TestController extends Controller {
 
     public function storeBmrCalculationTest(StoreBmrResult $request, BmrService $bmrService, UserService $userService) {
         $bmrResultObject = $bmrService->getBmrData($request);
-                var_dump( Auth::user());
+        var_dump(Auth::user());
 
         return view('layouts.test2')->with('bmrResultObject', $bmrResultObject);
     }
@@ -35,8 +35,14 @@ class TestController extends Controller {
     }
 
     public function testTest() {
-        echo "<pre>";
-        var_dump( Auth::user());
+        
+        if (Auth::user()) {
+            
+        } else {
+         $userService=new UserService();
+         $fakeUser=$userService->makeUserFake();
+        }
+
         return view('layouts.test3');
     }
 

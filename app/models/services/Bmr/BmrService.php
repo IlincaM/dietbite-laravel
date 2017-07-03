@@ -8,14 +8,13 @@ use Entities\BmrExercise;
 use Entities\BmrResult;
 use Illuminate\Http\Request;
 use Repositories\Bmr\BmrResultRepository;
-use Repositories\Bmr\bmrInterface;
+use Repositories\Bmr\BmrInterface;
 use Carbon\Carbon;
 use App\Http\Requests\StoreBmrResult;
 use Illuminate\Support\Facades\Auth;
 use Services\User\UserService;
 
 class BmrService {
-
 
     public function getDataFormBmr() {
         $data = array(
@@ -27,17 +26,8 @@ class BmrService {
 
     public function getBmrData(StoreBmrResult $request) {
         $data = new BmrResultRepository();
-        $data->age = $request->age;
-        $data->weight = $request->weight;
-        $data->goal_weight = $request->goal_weight;
-        $data->height = $request->height;
-        $data->gender = $request->gender;
-        $data->activityLevel = $request->activityLevel;
-        $data->exerciseLevel = $request->exerciseLevel;
-        $dt = Carbon::now();
-        $data->created_at = $dt->toDateString();
-        $data->updated_at = $dt->toDateString();
-        
+        $data = $this->setBmrResultData($data, $request);
+
 
         if ($data->gender == "male") {
             (float) $activityAndExercise = $data->activityLevel + $data->exerciseLevel;
@@ -49,17 +39,31 @@ class BmrService {
             (float) $result = $calculat * $activityAndExercise;
         }
         $data->bmr_result = $result;
-        if(Auth::user() == true){
-            $data->user_id =Auth::user()->id;
-            
+        if (Auth::user() == true) {
+            $data->user_id = Auth::user()->id;
         } else {
-            $fakeUserCreate= new UserService();
-            $fakeUserCreate= $fakeUserCreate->makeUserFake();
-            Auth::login($fakeUserCreate);
-            $data->user_id =$fakeUserCreate->id;
+            $fakeUserCreate = new UserService();
+            $fakeUser = $fakeUserCreate->makeUserFake();
+            Auth::login($fakeUser);
+            $data->user_id = $fakeUser->id;
         }
- 
-        return  $data->storeBmrResult($data);
+
+        return $data->storeBmrResult($data);
+    }
+
+    private function setBmrResultData(BmrResultRepository $bmrResultRepo, StoreBmrResult $request) {
+        $bmrResultRepo->age = $request->age;
+        $bmrResultRepo->weight = $request->weight;
+        $bmrResultRepo->goal_weight = $request->goal_weight;
+        $bmrResultRepo->height = $request->height;
+        $bmrResultRepo->gender = $request->gender;
+        $bmrResultRepo->activityLevel = $request->activityLevel;
+        $bmrResultRepo->exerciseLevel = $request->exerciseLevel;
+        $dt = Carbon::now();
+        $bmrResultRepo->created_at = $dt->toDateString();
+        $bmrResultRepo->updated_at = $dt->toDateString();
+
+        return $bmrResultRepo;
     }
 
 }

@@ -8,18 +8,18 @@ use Entities\BmrResult;
 /**
  * Description of bmrResultRepositoryServiceProvider
  *
- * @author ilinca
+ *@author Moncea Ilinca <john.doe@example.com>
  */
-class bmrResultRepositoryServiceProvider  extends ServiceProvider{
+class BmrResultRepositoryServiceProvider  extends ServiceProvider{
 
     /**
-    * Registers the bmrInterface with Laravels IoC Container
+    * Registers the BmrInterface with Laravels IoC Container
     * 
     */
     public function register()
     {
-        // Bind the returned class to the namespace 'Repositories\bmrInterface
-        $this->app->bind('Repositories\Bmr\bmrInterface', function($app)
+        // Bind the returned class to the namespace 'Repositories\BmrInterface
+        $this->app->bind('Repositories\Bmr\BmrInterface', function($app)
         {
             return new BmrResultRepository(new BmrResult());
         });

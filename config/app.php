@@ -153,7 +153,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Repositories\Bmr\bmrResultRepositoryServiceProvider::class,
+        Repositories\Bmr\BmrResultRepositoryServiceProvider::class,
         Services\Bmr\BmrResultServiceServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
     ],
