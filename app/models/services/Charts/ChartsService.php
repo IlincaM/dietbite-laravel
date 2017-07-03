@@ -4,10 +4,23 @@ namespace Services\Charts;
 
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
+use Repositories\Bmr\BmrResultRepository;
+use Services\User\UserService;
+use Illuminate\Support\Facades\Auth;
 
 class ChartsService {
 
-    public function makeChart(Request $request) {
+    public function makeChart(Request $request,BmrResultRepository $bmrResultRepo, UserService $user) {
+            $id = Auth::user()->id;
+        echo '<pre>';
+        
+ $data = $user->getUserById($id);
+ 
+ foreach ($data as $dataForChart){
+     $dataForChart;
+
+ }
+ var_dump($dataForChart["weight"]);die();
         $bmrResult = $request->cal_input;
         $bmrResult = $request->cal_input;
         $goalWeight = $request->hidden_goal_weight;
@@ -32,7 +45,7 @@ class ChartsService {
             'title' => 'Percent calories from your TDEE result: ' . $bmrResult,
             'is3D' => true,
             'slices' => [
-                ['offset' => 0.01]
+                    ['offset' => 0.01]
             ],
             'legend' => [
                 'position' => 'labeled'
@@ -40,5 +53,7 @@ class ChartsService {
         ]);
         return $lava;
     }
+
+
 
 }

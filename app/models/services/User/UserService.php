@@ -14,7 +14,12 @@ class UserService {
     public function makeUserFake() {
         return factory(User::class)->create();
     }
+    public function getUserById($id) {
+         $user = User::find($id);
+             return $user ? (object) $user->bmrResults()->get()->toArray() : null;
 
+        return $user->bmrResults()->get();
+    }
 
 
     

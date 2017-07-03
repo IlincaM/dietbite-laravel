@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Khill\Lavacharts\Lavacharts;
 use Services\Charts\ChartsService;
+use Repositories\Bmr\BmrResultRepository;
+use Services\User\UserService;
 
 class ChartsController extends Controller {
 
@@ -32,10 +34,10 @@ class ChartsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ChartsService $chartService) {
+    public function store(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user) {
         $lava = new ChartsService();
-        $lava = $chartService->makeChart($request);
-       
+        $lava = $chartService->makeChart($request, $bmrRepo, $user);
+
         return view('layouts.charts', ['lava' => $lava]);
     }
 

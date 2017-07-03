@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/resources/views/layouts/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/public/js/modals.js</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/app/Http/Controllers/BmrController.php</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/resources/views/partials/_form-bmr-modal.blade.php</file>
+            <file>file:/C:/xampp/htdocs/dietbite-laravel/app/models/repositories/Bmr/BmrResultRepository.php</file>
             <file>file:/C:/xampp/htdocs/dietbite-laravel/app/models/services/Bmr/BmrService.php</file>
         </group>
     </open-files>

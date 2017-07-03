@@ -45,6 +45,16 @@ class TestController extends Controller {
 
         return view('layouts.test3');
     }
+        public function testTest2(BmrResultRepository $bmrResultRepo, UserService $user) {
+            $id= Auth::user()->id;
+                            echo '<pre>';
+
+            var_dump($user->getUserById($id));die();
+                $bmrResultObject = $bmrResultRepo->getBmrResultById($id);
+                echo '<pre>';
+                var_dump($bmrResultObject);die();
+        return view('layouts.test3')->with('bmrResultObject', $bmrResultObject);
+    }
 
 }
 

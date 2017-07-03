@@ -19,6 +19,7 @@ Route::get('/', 'BmrController@index');
 Route::get('/test', 'TestController@indexForm');
 Route::post('/calculateTest', 'TestController@storeBmrCalculationTest');
 Route::get('/testTest', 'TestController@testTest');
+Route::get('/testTest2', 'TestController@testTest2');
 
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');
 Route::post('login', 'Auth\LoginController@authenticate')->name('login');

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBmrResult;
 use Entities\BmrResult;
 use stdClass;
 use Illuminate\Http\Request;
+use App\User;
 
 /**
  * Description of BmrResultRepository
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
  * @author ilinca
  */
 class BmrResultRepository implements BmrInterface {
-        
+
     public function getDataFormBmr() {
         return [
             'bmr_activity' => BmrActivity::all(),
@@ -28,6 +29,10 @@ class BmrResultRepository implements BmrInterface {
         $dataResut = new BmrResult($dataArray);
         $dataResut->save();
         return $dataResut;
+    }
+
+    public function getBmrResultById($id) {
+        return $user->bmrResults()->get();
     }
 
 }

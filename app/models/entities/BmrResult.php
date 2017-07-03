@@ -15,5 +15,8 @@ class BmrResult extends Model {
         'updated_at',
         'user_id'
     ]; //<-- only the field names inside the array can be mass-assign
-
+   public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
