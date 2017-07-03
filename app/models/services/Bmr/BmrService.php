@@ -16,7 +16,6 @@ use Services\User\UserService;
 
 class BmrService {
 
-
     public function getDataFormBmr() {
         $data = array(
             'bmr_activity' => BmrActivity::all(),
@@ -37,7 +36,7 @@ class BmrService {
         $dt = Carbon::now();
         $data->created_at = $dt->toDateString();
         $data->updated_at = $dt->toDateString();
-        
+
 
         if ($data->gender == "male") {
             (float) $activityAndExercise = $data->activityLevel + $data->exerciseLevel;
@@ -49,17 +48,16 @@ class BmrService {
             (float) $result = $calculat * $activityAndExercise;
         }
         $data->bmr_result = $result;
-        if(Auth::user() == true){
-            $data->user_id =Auth::user()->id;
-            
+        if (Auth::user() == true) {
+            $data->user_id = Auth::user()->id;
         } else {
-            $fakeUserCreate= new UserService();
-            $fakeUserCreate= $fakeUserCreate->makeUserFake();
+            $fakeUserCreate = new UserService();
+            $fakeUserCreate = $fakeUserCreate->makeUserFake();
             Auth::login($fakeUserCreate);
-            $data->user_id =$fakeUserCreate->id;
+            $data->user_id = $fakeUserCreate->id;
         }
- 
-        return  $data->storeBmrResult($data);
+
+        return $data->storeBmrResult($data);
     }
 
 }
