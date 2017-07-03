@@ -27,7 +27,7 @@ class ChartsService {
                 ->addNumberColumn('Percent')
                 ->addRow(['Protein', $protein])
                 ->addRow(['Fat', $fat])
-                ->addRow(['Calories', $cal]);
+                ->addRow(['Carbs', $cal]);
         $pieChart = $lava->PieChart('Calories', $reasons, [
             'title' => 'Percent calories from your TDEE result: ' . $bmrResult,
             'is3D' => true,

@@ -26,7 +26,20 @@ class BmrService {
 
     public function getBmrData(StoreBmrResult $request) {
         $data = new BmrResultRepository();
+<<<<<<< HEAD
         $data = $this->setBmrResultData($data, $request);
+=======
+        $data->age = $request->age;
+        $data->weight = $request->weight;
+        $data->goal_weight = $request->goal_weight;
+        $data->height = $request->height;
+        $data->gender = $request->gender;
+        $data->activityLevel = $request->activityLevel;
+        $data->exerciseLevel = $request->exerciseLevel;
+        $dt = Carbon::now();
+        $data->created_at = $dt->toDateString();
+        $data->updated_at = $dt->toDateString();
+>>>>>>> bb448ead086f014314a86400a11c23a97056b3cb
 
 
         if ($data->gender == "male") {
@@ -43,6 +56,7 @@ class BmrService {
             $data->user_id = Auth::user()->id;
         } else {
             $fakeUserCreate = new UserService();
+<<<<<<< HEAD
             $fakeUser = $fakeUserCreate->makeUserFake();
             Auth::login($fakeUser);
             $data->user_id = $fakeUser->id;
@@ -64,6 +78,14 @@ class BmrService {
         $bmrResultRepo->updated_at = $dt->toDateString();
 
         return $bmrResultRepo;
+=======
+            $fakeUserCreate = $fakeUserCreate->makeUserFake();
+            Auth::login($fakeUserCreate);
+            $data->user_id = $fakeUserCreate->id;
+        }
+
+        return $data->storeBmrResult($data);
+>>>>>>> bb448ead086f014314a86400a11c23a97056b3cb
     }
 
 }
