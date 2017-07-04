@@ -7,23 +7,25 @@ use Khill\Lavacharts\Lavacharts;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
 use Illuminate\Support\Facades\Auth;
+use ConsoleTVs\Charts\Facades\Charts;
 
 class ChartsService {
 
-    public function makeChart(Request $request,BmrResultRepository $bmrResultRepo, UserService $user) {
+    public function makeChart(Request $request, BmrResultRepository $bmrResultRepo, UserService $user) {
+        if (Auth::user()) {
             $id = Auth::user()->id;
-        echo '<pre>';
-        
- $data = $user->getUserById($id);
- 
- foreach ($data as $dataForChart){
-     $dataForChart;
+        } else {
+            $userService = new UserService();
+            $fakeUser = $userService->makeUserFake();
+        }
 
- }
- var_dump($dataForChart["weight"]);die();
-        $bmrResult = $request->cal_input;
-        $bmrResult = $request->cal_input;
-        $goalWeight = $request->hidden_goal_weight;
+        $data = $user->getUserById($id);
+
+        foreach ($data as $dataForChart) {
+            $dataForChart;
+        }
+        $bmrResult = $dataForChart["bmr_result"];
+        $goalWeight = $dataForChart ["goal_weight"];
         $const4 = 4;
         $const9 = 9;
         $x = 1.98;
@@ -45,7 +47,7 @@ class ChartsService {
             'title' => 'Percent calories from your TDEE result: ' . $bmrResult,
             'is3D' => true,
             'slices' => [
-                    ['offset' => 0.01]
+                ['offset' => 0.01]
             ],
             'legend' => [
                 'position' => 'labeled'
@@ -54,6 +56,48 @@ class ChartsService {
         return $lava;
     }
 
+    public function makeBarChart(Request $request, BmrResultRepository $bmrResultRepo, UserService $user) {
+        if (Auth::user()) {
+            $id = Auth::user()->id;
+        } else {
+            $userService = new UserService();
+            $fakeUser = $userService->makeUserFake();
+        }
+
+        $data = $user->getUserById($id);
+
+        foreach ($data as $dataForChart) {
+            $dataForChart;
+        }
+        $result = []; // Empty array
+        $bmrResult = $dataForChart["bmr_result"];
+        $goalWeight = $dataForChart ["goal_weight"];
+        $weight = $dataForChart ["weight"];
+        $weeks = ($weight - $goalWeight) / 0.6;
+        
+        for ($i = 0; $i <= $weeks; $i++) {
+            $bmrResult=$bmrResult*(100-7.5)/100;
+           $result[$i] = $bmrResult;  
+           
+           echo '<pre>';
+            
+
+        }
+        $chart = Charts::create('bar', 'highcharts')
+    ->title('My nice chart')
+    ->elementLabel('My nice label')
+    
+    ->dimensions(800,500)
+    ->responsive(false);
+        foreach ($result as $key => $value){
+            $chart->values($result);
 
 
+        }
+
+
+    
+        return $chart;
+
+    }
 }

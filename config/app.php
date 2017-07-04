@@ -156,6 +156,7 @@ return [
         Repositories\Bmr\BmrResultRepositoryServiceProvider::class,
         Services\Bmr\BmrResultServiceServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -205,5 +206,6 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'BmrResult' => 'Services\Bmr\BmrFacade',
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
     ],
 ];

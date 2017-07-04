@@ -1,2 +1,5 @@
 <div id="chart-div"></div>
-      {!! $lava->render('PieChart', 'Calories', 'chart-div') !!}
+   <title>My Charts</title>
+
+        {!! Charts::assets() !!}
+ {!! $lava->render() !!}

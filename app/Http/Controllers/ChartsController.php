@@ -7,6 +7,7 @@ use Khill\Lavacharts\Lavacharts;
 use Services\Charts\ChartsService;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
+use ConsoleTVs\Charts\Facades\Charts;
 
 class ChartsController extends Controller {
 
@@ -36,8 +37,7 @@ class ChartsController extends Controller {
      */
     public function store(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user) {
         $lava = new ChartsService();
-        $lava = $chartService->makeChart($request, $bmrRepo, $user);
-
+        $lava = $chartService->makeBarChart($request, $bmrRepo, $user);
         return view('layouts.charts', ['lava' => $lava]);
     }
 
