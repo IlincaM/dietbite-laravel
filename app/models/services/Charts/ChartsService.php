@@ -2,12 +2,12 @@
 
 namespace Services\Charts;
 
+use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Khill\Lavacharts\Lavacharts;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
-use Illuminate\Support\Facades\Auth;
-use ConsoleTVs\Charts\Facades\Charts;
 
 class ChartsService {
 
@@ -47,7 +47,7 @@ class ChartsService {
             'title' => 'Percent calories from your TDEE result: ' . $bmrResult,
             'is3D' => true,
             'slices' => [
-                ['offset' => 0.01]
+                    ['offset' => 0.01]
             ],
             'legend' => [
                 'position' => 'labeled'
@@ -74,30 +74,24 @@ class ChartsService {
         $goalWeight = $dataForChart ["goal_weight"];
         $weight = $dataForChart ["weight"];
         $weeks = ($weight - $goalWeight) / 0.6;
-        
+        $labelsForChart = [];
         for ($i = 0; $i <= $weeks; $i++) {
-            $bmrResult=$bmrResult*(100-7.5)/100;
-           $result[$i] = $bmrResult;  
-           
-           echo '<pre>';
-            
-
+            $bmrResult = $bmrResult * (100 - 7.5) / 100;
+            $result[$i] = $bmrResult;
+            $labelsForChart[$i] = $i;
         }
+        
+phpinfo();
         $chart = Charts::create('bar', 'highcharts')
-    ->title('My nice chart')
-    ->elementLabel('My nice label')
-    
-    ->dimensions(800,500)
-    ->responsive(false);
-        foreach ($result as $key => $value){
-            $chart->values($result);
+                ->title('Calories per day')
+                ->elementLabel('Calories to consume')
+                ->values($result)
+                ->labels($labelsForChart)
+                ->dimensions(800, 500)
+                ->colors(['blue'])
+                ->responsive(false);
 
-
-        }
-
-
-    
         return $chart;
-
     }
+
 }
