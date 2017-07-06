@@ -81,7 +81,6 @@ class ChartsService {
             $labelsForChart[$i] = $i;
         }
         
-phpinfo();
         $chart = Charts::create('bar', 'highcharts')
                 ->title('Calories per day')
                 ->elementLabel('Calories to consume')

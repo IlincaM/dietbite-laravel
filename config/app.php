@@ -145,6 +145,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Braunson\FatSecret\FatSecretServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -157,6 +158,7 @@ return [
         Services\Bmr\BmrResultServiceServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        
     ],
     /*
       |--------------------------------------------------------------------------
@@ -207,5 +209,6 @@ return [
         'BmrResult' => 'Services\Bmr\BmrFacade',
         'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'FatSecret' => Braunson\FatSecret\Facade::class,
     ],
 ];
