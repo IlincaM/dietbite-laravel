@@ -31,7 +31,9 @@
             "app/models/repositories/Bmr",
             "app/models/services/Charts",
             "app/models/services/User",
-            "app/models/repositories/Charts"
+            "app/models/repositories/Charts",
+            "app/models/repositories/Meals"
+
 
         ],
         "psr-4": {

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Khill\Lavacharts\Lavacharts;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
-
+use Illuminate\Support\Facades\Session;
 class ChartsService {
 
     public function makeChart(Request $request, BmrResultRepository $bmrResultRepo, UserService $user) {
@@ -78,9 +78,11 @@ class ChartsService {
         for ($i = 0; $i <= $weeks; $i++) {
             $bmrResult = $bmrResult * (100 - 7.5) / 100;
             $result[$i] = $bmrResult;
+
             $labelsForChart[$i] = $i;
         }
-        
+                       Session::put('result', $result);
+
         $chart = Charts::create('bar', 'highcharts')
                 ->title('Calories per day')
                 ->elementLabel('Calories to consume')

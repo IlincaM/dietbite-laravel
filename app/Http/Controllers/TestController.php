@@ -8,7 +8,7 @@ use Repositories\Bmr\BmrResultRepository;
 use Services\Bmr\BmrService;
 use App\Http\Requests\StoreBmrResult;
 use Illuminate\Support\Facades\Auth;
-
+use Repositories\Meals\MealsRepositories;
 class TestController extends Controller {
 
     protected $userFake;
@@ -30,8 +30,16 @@ class TestController extends Controller {
     }
 
     public function indexForm() {
-        $data = new BmrService();
-        return view('layouts.test')->with('data', $data->getDataFormBmr());
+         if (Auth::user()) {
+            var_dump(Auth::user()->id);
+        } else {
+         $userService=new UserService();
+         $fakeUser=$userService->makeUserFake();
+        }
+        $data = new MealsRepositories(); 
+        $data= $data->test();
+        var_dump($data);
+return view('layouts.test')->with('data', $data);
     }
 
     public function testTest() {
