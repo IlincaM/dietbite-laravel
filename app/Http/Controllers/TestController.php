@@ -38,7 +38,7 @@ class TestController extends Controller {
         }
         $data = new MealsRepositories(); 
         $data= $data->test();
-        var_dump($data);
+//        var_dump($data);
 return view('layouts.test')->with('data', $data);
     }
 
