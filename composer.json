@@ -32,8 +32,8 @@
             "app/models/services/Charts",
             "app/models/services/User",
             "app/models/repositories/Charts",
+            "app/models/services/Meals",
             "app/models/repositories/Meals"
-
 
         ],
         "psr-4": {

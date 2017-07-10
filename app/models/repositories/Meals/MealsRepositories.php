@@ -8,7 +8,7 @@ use Braunson\FatSecret\FatSecret;
 
 class MealsRepositories {
 
-    public function test() {
+    public function getBreakfast() {
 
 ////Signature Base String
 ////<HTTP Method>&<Request URL>&<Normalized Parameters>
@@ -35,18 +35,23 @@ class MealsRepositories {
 //
 //$food_feed = file_get_contents($url);
 //echo $food_feed;
-        $food = DB::table('ABBREV')->where('NDB_No', '28231')->first();
         $sessionCaloriesPerWeek = Session::get('result');
-        $x = DB::table('ABBREV')
-                ->join('food_des', 'ABBREV.NDB_No', '=', 'food_des.NDB_No')
-                ->join('fd_group', 'food_des.FdGrp_Cd', '=', 'fd_group.FdGrp_Cd')
-                ->where('fd_group.FdGrp_Cd', '0100')
+        reset($sessionCaloriesPerWeek);
+        while (current($sessionCaloriesPerWeek)) {
+            echo current($sessionCaloriesPerWeek); // print the current value of array
+            echo '<br>';
+            next($sessionCaloriesPerWeek);
+        }
+
+        $getBreakfast = DB::table('ABBREV')
+                ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
+                ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
+                ->where('FD_GROUP.FdGrp_Cd', '0100')
+                ->where('ABBREV.Energ_Kcal', '<=', '300')
                 ->inRandomOrder()
                 ->take(2)
                 ->get();
-        echo '<pre>';
-        var_dump($x);
-        return $sessionCaloriesPerWeek;
+        return $getBreakfast;
     }
 
 }

@@ -99,7 +99,7 @@ add_action( 'mc4wp_admin_other_settings', '_mc4wp_usage_tracking_setting', 70 );
 				<h3><?php _e( 'Debug Log', 'mailchimp-for-wp' ); ?> <input type="text" id="debug-log-filter" class="alignright regular-text" placeholder="<?php esc_attr_e( 'Filter..', 'mailchimp-for-wp' ); ?>" /></h3>
 
 				<?php
-				if( ! $log->test() ) {
+				if( ! $log->getBreakfast() ) {
 					echo '<p>';
 					echo __( 'Log file is not writable.', 'mailchimp-for-wp' ) . ' ';
 					echo  sprintf( __( 'Please ensure %s has the proper <a href="%s">file permissions</a>.', 'mailchimp-for-wp' ), '<code>' . $log->file . '</code>', 'https://codex.wordpress.org/Changing_File_Permissions' );

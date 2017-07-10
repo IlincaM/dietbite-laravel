@@ -8,7 +8,8 @@ use Services\Charts\ChartsService;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
 use ConsoleTVs\Charts\Facades\Charts;
-
+use Repositories\Meals\MealsRepositories;
+use Services\MealsService\MealsService;
 class ChartsController extends Controller {
 
     /**
@@ -35,10 +36,11 @@ class ChartsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user) {
+    public function store(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user, MealsService $mealsService, MealsRepositories $mealsRepo) {
         $lava = new ChartsService();
         $lava = $chartService->makeBarChart($request, $bmrRepo, $user);
-        return view('layouts.charts', ['lava' => $lava]);
+        $makeMeals= $mealsService->makeBreakfast($request, $mealsRepo);
+        return view('layouts.charts', ['lava' => $lava,'makeMeals' => $makeMeals]);
     }
 
     /**

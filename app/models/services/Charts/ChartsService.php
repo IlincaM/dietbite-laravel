@@ -9,6 +9,7 @@ use Khill\Lavacharts\Lavacharts;
 use Repositories\Bmr\BmrResultRepository;
 use Services\User\UserService;
 use Illuminate\Support\Facades\Session;
+
 class ChartsService {
 
     public function makeChart(Request $request, BmrResultRepository $bmrResultRepo, UserService $user) {
@@ -47,7 +48,7 @@ class ChartsService {
             'title' => 'Percent calories from your TDEE result: ' . $bmrResult,
             'is3D' => true,
             'slices' => [
-                    ['offset' => 0.01]
+                ['offset' => 0.01]
             ],
             'legend' => [
                 'position' => 'labeled'
@@ -65,7 +66,6 @@ class ChartsService {
         }
 
         $data = $user->getUserById($id);
-
         foreach ($data as $dataForChart) {
             $dataForChart;
         }
@@ -81,7 +81,7 @@ class ChartsService {
 
             $labelsForChart[$i] = $i;
         }
-                       Session::put('result', $result);
+        Session::put('result', $result);
 
         $chart = Charts::create('bar', 'highcharts')
                 ->title('Calories per day')
