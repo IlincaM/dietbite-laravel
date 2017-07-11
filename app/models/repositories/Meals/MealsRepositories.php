@@ -36,21 +36,20 @@ class MealsRepositories {
 //$food_feed = file_get_contents($url);
 //echo $food_feed;
         $sessionCaloriesPerWeek = Session::get('result');
-        foreach ($sessionCaloriesPerWeek as $keySessionCaloriesPerWeek =>$valueSessionCaloriesPerWeek){
-            for($i=0;$i<=$keySessionCaloriesPerWeek;$i++){
-              $getBreakfast[$i] = DB::table('ABBREV')
-                ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
-                ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
+        foreach ($sessionCaloriesPerWeek as $keySessionCaloriesPerWeek => $valueSessionCaloriesPerWeek) {
+//            for($i=0;$i<=$keySessionCaloriesPerWeek;$i++){
+            $getBreakfast = DB::table('ABBREV')
+                    ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
+                    ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
 //                ->where('FD_GROUP.FdGrp_Cd', '0100')
-                ->where('ABBREV.Energ_Kcal', '<=', $valueSessionCaloriesPerWeek)
-                ->inRandomOrder()
-                ->take(3)
-              ->get();
-            }
-
+                    ->where('ABBREV.Energ_Kcal', '<=', $valueSessionCaloriesPerWeek)
+                    ->inRandomOrder()
+                    ->take(3)
+                    ->get();
+//            }
         }
 
-   
+
         return $getBreakfast;
     }
 
