@@ -36,19 +36,25 @@ class MealsRepositories {
 //$food_feed = file_get_contents($url);
 //echo $food_feed;
         $sessionCaloriesPerWeek = Session::get('result');
-        foreach ($sessionCaloriesPerWeek as $keySessionCaloriesPerWeek => $valueSessionCaloriesPerWeek) {
-//            for($i=0;$i<=$keySessionCaloriesPerWeek;$i++){
-            $getBreakfast = DB::table('ABBREV')
-                    ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
-                    ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
-//                ->where('FD_GROUP.FdGrp_Cd', '0100')
-                    ->where('ABBREV.Energ_Kcal', '<=', $valueSessionCaloriesPerWeek)
-                    ->inRandomOrder()
-                    ->take(3)
-                    ->get();
-//            }
-        }
+        $subquery = DB::raw("(select @cumSum := 0.0)B");
+//        foreach ($sessionCaloriesPerWeek as $keySessionCaloriesPerWeek => $valueSessionCaloriesPerWeek) {
+//            for ($i = 0; $i <= $keySessionCaloriesPerWeek; $i++) {
+                $getBreakfast = DB::table('ABBREV')
+                ->select(DB::raw('ABBREV.NDB_No,ABBREV.Shrt_Desc,ABBREV.Energ_Kcal , (@cumSum:= @cumSum + ABBREV.Energ_Kcal) as cumSum'))
+                ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
+                ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
+                ->join($subquery, function ($join)  {
+                $subq = DB::raw(' (@cumSum )');
+                $join->on($subq, '=', $subq);
 
+                })
+                ->where(DB::raw('@cumSum'), '<=', 2000)
+
+//         
+                ->get();
+
+//            }
+//        }
 
         return $getBreakfast;
     }
