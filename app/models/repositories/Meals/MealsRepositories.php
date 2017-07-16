@@ -37,25 +37,36 @@ class MealsRepositories {
 //echo $food_feed;
         $sessionCaloriesPerWeek = Session::get('result');
         $subquery = DB::raw("(select @cumSum := 0.0)B");
-//        foreach ($sessionCaloriesPerWeek as $keySessionCaloriesPerWeek => $valueSessionCaloriesPerWeek) {
-//            for ($i = 0; $i <= $keySessionCaloriesPerWeek; $i++) {
-                $getBreakfast = DB::table('ABBREV')
-                ->select(DB::raw('ABBREV.NDB_No,ABBREV.Shrt_Desc,ABBREV.Energ_Kcal , (@cumSum:= @cumSum + ABBREV.Energ_Kcal) as cumSum'))
-                ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
-                ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
-                ->join($subquery, function ($join)  {
-                $subq = DB::raw(' (@cumSum )');
-                $join->on($subq, '=', $subq);
+        
+//            $getBreakfast = DB::table('ABBREV')
+//                    ->select(DB::raw('ABBREV.NDB_No,ABBREV.Shrt_Desc,ABBREV.Energ_Kcal , (@cumSum:= @cumSum + ABBREV.Energ_Kcal) as cumSum'))
+//                    ->join('FOOD_DES', 'ABBREV.NDB_No', '=', 'FOOD_DES.NDB_No')
+//                    ->join('FD_GROUP', 'FOOD_DES.FdGrp_Cd', '=', 'FD_GROUP.FdGrp_Cd')
+//                    ->join($subquery, function ($join) {
+//                        $subq = DB::raw(' (@cumSum )');
+//                        $join->on($subq, '=', $subq);
+//                    })
+//                    ->where(DB::raw('@cumSum'), '<=', $valueSessionCaloriesPerWeek)
+//                    ->get();
 
-                })
-                ->where(DB::raw('@cumSum'), '<=', 2000)
-
-//         
-                ->get();
-
-//            }
-//        }
-
+             $query = DB::select("SELECT abbrev.NDB_No,abbrev.Shrt_Desc,abbrev.Energ_Kcal,"
+                            . " ( @cumSum:= @cumSum + abbrev.Energ_Kcal)"
+                            . " AS cumSum"
+                            . " FROM abbrev"
+                            . " LEFT JOIN food_des ON food_des.NDB_No=abbrev.NDB_No "
+                            . "LEFT JOIN  fd_group ON fd_group.FdGrp_CD=food_des.FdGrp_Cd"
+                            . " JOIN (select @cumSum := 0.0) B "
+                            . "WHERE @cumSum < 2000" 
+                            . " AND fd_group.FdGrp_CD=0100"
+                            . " AND abbrev.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM abbrev ))");
+            
+          
+       
+        
+        
+        echo '<pre>';
+        var_dump($query);
+        $getBreakfast = "test";
         return $getBreakfast;
     }
 
