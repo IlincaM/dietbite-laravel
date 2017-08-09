@@ -29,7 +29,7 @@ class AddPlanTypeIdToDietPlansTable extends Migration {
      */
     public function down() {
         Schema::table('diet_plans', function (Blueprint $table) {
-            
+            $table->dropForeign(['diet_plan_type_id']);
         });
     }
 

@@ -19,9 +19,8 @@ class CreateAbbrevMenuTable extends Migration
             $table->foreign('menu_id')
                     ->references('id')->on('diet_menu')
                     ->onDelete('cascade');
-            $table->integer('food_id')->unsigned(); 
-
-          
+            $table->string('NDB_No_id',5); 
+            
         });
     }
 
