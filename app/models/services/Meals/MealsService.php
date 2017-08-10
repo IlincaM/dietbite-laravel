@@ -16,9 +16,10 @@ class MealsService {
 
     public function makeBreakfast(Request $request, MealsRepositories $mealsRepo) {
         $numberOfMeals = $request->nummeals;
+        $dietPlanType = $request->planType;
 
-        $makeBreakfast = $mealsRepo->getBreakfast();
-        echo '<pre>';
+     
+        $makeBreakfast = $mealsRepo->getBreakfast($dietPlanType,$numberOfMeals);
         return $makeBreakfast;
     }
 

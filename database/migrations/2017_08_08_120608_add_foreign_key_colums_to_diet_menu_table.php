@@ -18,10 +18,13 @@ class AddForeignKeyColumsToDietMenuTable extends Migration {
             $table->foreign('meal_time_id')
                     ->references('id')->on('meal_time')
                     ->onDelete('cascade');
-            $table->integer('plan_id')->unsigned();
+            $table->integer('diet_plan_id')->unsigned();
 
-            $table->foreign('plan_id')
+            $table->foreign('diet_plan_id')
                     ->references('id')->on('diet_plans')
+                    ->onDelete('cascade');
+            $table->foreign('diet_meal_id')
+                    ->references('id')->on('diet_meals')
                     ->onDelete('cascade');
         });
     }
@@ -34,7 +37,8 @@ class AddForeignKeyColumsToDietMenuTable extends Migration {
     public function down() {
         Schema::table('diet_menu', function (Blueprint $table) {
             $table->dropForeign(['meal_time_id']);
-            $table->dropForeign(['plan_id']);
+            $table->dropForeign(['diet_plan_id']);
+            $table->dropForeign(['diet_meal_id']);
         });
     }
 

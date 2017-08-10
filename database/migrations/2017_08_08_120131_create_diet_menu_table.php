@@ -15,7 +15,10 @@ class CreateDietMenuTable extends Migration {
         Schema::create('diet_menu', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->date('day');
+            $table->timestamp('day');
+            $table->integer('diet_meal_id')->unsigned();
+
+            $table->timestamps();
         });
     }
 
