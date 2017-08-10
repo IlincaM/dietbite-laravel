@@ -31,5 +31,7 @@ class DietPlan extends Model {
     public function user() {
         return $this->belongsTo('App\User');
     }
-
+ public function dietWeeksPlan() {
+        return $this->belongsTo('App\models\entities\DietWeeksPlan');
+    }
 }

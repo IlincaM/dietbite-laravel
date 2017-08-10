@@ -13,12 +13,10 @@ class AddForeignKeyColumsToDietMenuTable extends Migration {
      */
     public function up() {
         Schema::table('diet_menu', function (Blueprint $table) {
-            $table->integer('meal_time_id')->unsigned();
 
             $table->foreign('meal_time_id')
                     ->references('id')->on('meal_time')
                     ->onDelete('cascade');
-            $table->integer('diet_plan_id')->unsigned();
 
             $table->foreign('diet_plan_id')
                     ->references('id')->on('diet_plans')
