@@ -8,14 +8,13 @@ use Braunson\FatSecret\FatSecret;
 use App\models\entities\DietPlan;
 use App\models\entities\AbbrevFood;
 use App\models\entities\DietMeal;
-use App\Models\Entities\DietWeeksPlan;
 use App\Models\Entities\DietDays;
+use App\Models\Entities\DietWeeksPlan;
 use Illuminate\Support\Facades\Auth;
 
 class MealsRepositories {
 
     public function getBreakfast($dietPlanType, $numberOfMeals) {
-
         $sessionCaloriesPerWeek = Session::get('result');
         $userId = Auth::user()->id;
         $weeks = sizeof($sessionCaloriesPerWeek);
@@ -28,7 +27,6 @@ class MealsRepositories {
         $saveDataPlan['end_date'] = $endDate;
         $saveDataPlan['weeks'] = sizeof($sessionCaloriesPerWeek);
         $saveDataPlan->save();
-
         foreach ($sessionCaloriesPerWeek as $key => $value) {
             $saveDataWeeksPlan = new DietWeeksPlan();
 
@@ -37,29 +35,40 @@ class MealsRepositories {
             $saveDataWeeksPlan->calories = $value;
             $saveDataWeeksPlan->dietPlan()->associate($saveDataPlan->id)->save();
         }
-        $w = DietWeeksPlan::where('diet_plan_id', '=', $saveDataPlan->id)
-                        ->select('calories', 'week_no', 'id')
-                        ->get()->toArray();
+
         echo '<pre>';
-        var_dump($w);
+        $findWeekIds = DB::select("SELECT diet_weeks_plan.id, diet_weeks_plan.week_no,diet_weeks_plan.diet_plan_id,diet_weeks_plan.calories"
+                        . " FROM diet_weeks_plan"
+                        . " LEFT JOIN diet_plans ON diet_plans.id=diet_weeks_plan.diet_plan_id");
+        foreach ($findWeekIds as $weekId) {
             for ($i = 1; $i <= 7; $i++) {
-                $find = new DietDays();
-                $find->day_no = $i;
+                $saveDataToDaysPlan = new DietDays();
+                $saveDataToDaysPlan->day_no = $i;
+                $saveDataToDaysPlan->diet_weeks_plan_id = $weekId->id;
+                $saveDataToDaysPlan->diet_plan_id = $weekId->diet_plan_id;
+                $saveDataToDaysPlan->save();
+                $query = DB::select("SELECT ABBREV.NDB_No"
+                                . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                                . " AS cumSum"
+                                . " FROM ABBREV"
+                                . " JOIN (select @cumSum := 0.0) B "
+                                . "WHERE @cumSum < $weekId->calories"
+                                . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+                foreach ($query as $q) {
+                    var_dump($query);
+                    $dietMeal = new DietMeal();
+                    $dietMeal->NDB_No_id = $q->NDB_No;
+                    $dietMeal->meal_time_id = 1;
+
+                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
+                }
+
+
+//                var_dump($dietMeal);
             }
-//                    $find->day_no=1;
+        }
+
         die();
-        $find = new DietDays();
-        $find->dietWeeksPlan()->attach($saveDataWeeksPlan);
-//            $find->day_no=1;
-//            $find->dietWeeksPlan()->associate($saveDataWeeksPlan->id)->save(); 
-//            die();
-//        var_dump($dietPlanType);
-//        var_dump($numberOfMeals);
-//
-//        die();
-//        
-
-
 
         $query = [];
         $day = [];

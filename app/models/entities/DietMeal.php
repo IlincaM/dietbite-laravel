@@ -8,14 +8,18 @@ class DietMeal extends Model {
 
     protected $table = 'diet_meals';
     protected $fillable = [
-        'NDB_No_id'];
+        'NDB_No_id',
+        'meal_time_id'];
 
     public function abbrevFood() {
         return $this->hasMany('App\models\entities\AbbrevFood');
     }
 
     public function dietMenu() {
-        return $this->hasMany('App\models\entities\DietMenu');
+        return $this->belongsTo('App\models\entities\DietMenu');
     }
+    public function dietDay() {
+                return $this->belongsTo('App\models\entities\DietDays');
 
+    }
 }
