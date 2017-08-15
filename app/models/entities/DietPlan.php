@@ -19,9 +19,9 @@ class DietPlan extends Model {
      */
     public function dietMenu() {
         return $this->belongsTo('App\models\entities\DietMenu');
-        
     }
-    public function dietPlanType(){
+
+    public function dietPlanType() {
         return $this->hasMany('App\models\entities\DietPlanType');
     }
 
@@ -31,7 +31,9 @@ class DietPlan extends Model {
     public function user() {
         return $this->belongsTo('App\User');
     }
- public function dietWeeksPlan() {
+
+    public function dietWeeksPlan() {
         return $this->belongsTo('App\models\entities\DietWeeksPlan');
     }
+
 }
