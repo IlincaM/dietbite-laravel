@@ -29,5 +29,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('Entities\BmrResult','user_id');
     }
+    public function dietMeals()
+    {
+        return $this->hasMany('App\models\entities\DietMeals');
+    }
+     public function dietPlans()
+    {
+        return $this->hasMany('App\models\entities\DietPlan');
+    }
 }
 

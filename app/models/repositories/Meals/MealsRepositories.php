@@ -50,7 +50,6 @@ class MealsRepositories {
                 $saveDataToDaysPlan = new DietDays();
                 $saveDataToDaysPlan->day_no = $i;
                 $saveDataToDaysPlan->diet_weeks_plan_id = $weekId->id;
-
 //                $saveDataToDaysPlan->save();
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
                 $query = DB::select("SELECT ABBREV.NDB_No"
@@ -72,41 +71,43 @@ class MealsRepositories {
                 }
             }
         }
-
-
         echo '<pre>';
 
         $selectWeeks = \DB::table('diet_plans')
-                        ->select("users.id", "diet_plans.id as diet_plan_id", "diet_plans.weeks", "diet_plans.diet_plan_type_id")
+                        ->select("users.id as user_id", "diet_plans.id as diet_plan_id", "diet_plans.weeks", "diet_plans.diet_plan_type_id")
                         ->leftJoin('users', 'users.id', '=', 'diet_plans.user_id')
                         ->leftJoin('diet_plan_type', 'diet_plan_type.id', '=', 'diet_plans.diet_plan_type_id')
                         ->where('user_id', $userId)
                         ->whereIn('diet_plans.diet_plan_type_id', [1, 2])
                         ->get()->toArray();
-
+//        var_dump($selectWeeks);die();
         $output = [];
         $outputDays = [];
         foreach ($selectWeeks as $week) {
-            define("WEEKS", $week->weeks, true);
             for ($i = 1; $i <= $week->weeks; $i++) {
+               for($j=1;$j<=7;$j++) {
 
-
-
-
-                for ($j = 1; $j <= 7; $j++) {
-
-                    $food["week_no_$i"]["day_no_$j"] = \DB::table('diet_meals')
-                                    ->select("diet_meals.NDB_No_id", "diet_meals.diet_day_id", "diet_weeks_plan.week_no", "diet_days.day_no")
-                                    ->leftJoin('diet_days', 'diet_meals.diet_day_id', '=', 'diet_days.id')
+                    $food["week_no_$i"]["day-no-$j"] = \DB::table('diet_days')
+                                    ->select("diet_meals.NDB_No_id","ABBREV.Shrt_Desc","ABBREV.Energ_Kcal")
                                     ->leftJoin('diet_weeks_plan', 'diet_days.diet_weeks_plan_id', '=', 'diet_weeks_plan.id')
+                                    ->where('diet_weeks_plan.diet_plan_id', '=', $week->diet_plan_id)
                                     ->where('diet_weeks_plan.week_no', '=', $i)
                                     ->where('diet_days.day_no', '=', $j)
+                                    ->leftJoin(DB::raw("(SELECT diet_meals.NDB_No_id, diet_meals.diet_day_id  FROM diet_meals) as diet_meals"), function($join) {
+                                        $join->on("diet_meals.diet_day_id", "=", "diet_days.id");
+                                    })
+                                    ->leftJoin(DB::raw("(SELECT ABBREV.Shrt_Desc,ABBREV.Energ_Kcal,ABBREV.NDB_No  FROM ABBREV) as ABBREV"), function($join) {
+                                        $join->on("diet_meals.NDB_No_id", "=", "ABBREV.NDB_No");
+                                    })
                                     ->get()->toArray();
+                                    $output = $food;
+
+
                 }
-                $output[] = $food;
             }
         }
-
+        
+     
         return $output;
     }
 

@@ -1,56 +1,73 @@
-
-
-<?php $createTable = '<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>Breakfast</th>
-                  <td>Jacob</td>
-
-        </tr>
-        <tr>
-            <th>Lunch</th>
-        </tr>
-        <tr>
-            <th >Dinner</th>
-
-        </tr>
-    </tbody>
-</table>
-'; ?>
 <?php
-$j = 0;
-$z=1;
+for ($i = 1; $i <= count($makeMeals); $i++) {
+    echo "<table class='table'>"
+    . "<thead>"
+    . "<tr><th>#</th>"
+    . "<th>day-1</th>"
+    . "<th>day-2</th>"
+                . "<th>day-3</th>"
+    . "<th>day-4</th>"
+    . "<th>day-5</th>"
+    . "<th>day-6</th>"
+    . "<th>day-7</th>"
 
-foreach ($makeMeals as $makeMealsTable => $table) {
-    while ($z<=$makeMealsTable){
-    var_dump($table["week_no_$z"]);
-        $z++;
-    }
-//        while ($j <= $makeMealsTable) {
-//        echo $createTable;
-//        $j++;}
-//    var_dump($table);
-//    var_dump($table["week_no_1"]["day_no_1"]);
-//    while ($j <= $makeMealsTable) {
-//        echo $createTable;
-//        $j++;
+    . "</tr>"
+    . "</thead> 
+      <tbody>
+      <tr>
+        <td>Breakfast</td>
+        <td>";
+      
+       echo" <ul>
+        <li>dkdkd<li><li>ddjjdbs<li></ul></td>
+        <td>Pitt</td>
+        <td>35</td>
+        <td>New York</td>
+        <td>USA</td>
+      </tr>
+    </tbody>"
+    . "</table>";
+}
+
+foreach ($makeMeals as $makeTable ) {
+  dump($makeTable);
+//    foreach ($value["day-no-1"] as $v){
+//            dump($v);
+
 //    }
 }
-die();
+//    
+//    for ($i = 0; $i <= $makeTable; $i++) {
+//        echo "
+//<table class='table'>            
+//<thead>
+//        <th>#</th>";
+//        
+//        foreach ($value as $val => $v){
+//            
+//                echo "<th>$val</th>";
+//
+//        }
+//    
+//    
+//echo " </thead>
+//<tbody>
+//        <tr> 
+//            <td>Breakfast</td>";
+//foreach ($v as $plm ){
+//    echo "<td><ul><li>$plm->Shrt_Desc</li></ul></td>";
+//}
+//            echo "</tr>
+//</tbody>
+//</table>
+//";
+//        echo "<br>";
+//    }
+//}
+//die();
+//
 ?>
+
 {!! Charts::assets() !!}
 {!! $lava->render() !!}
 <?php
