@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Session;
 class ChartsService {
 
     public function makeChart(Request $request, BmrResultRepository $bmrResultRepo, UserService $user) {
-        if (Auth::user()) {
+       if (Auth::user()) {
             $id = Auth::user()->id;
         } else {
             $userService = new UserService();
             $fakeUser = $userService->makeUserFake();
         }
-
         $data = $user->getUserById($id);
 
         foreach ($data as $dataForChart) {
@@ -84,7 +83,7 @@ class ChartsService {
         Session::put('result', $result);
 
         $chart = Charts::create('bar', 'highcharts')
-                ->title('Calories per day')
+                ->title('Calories per week')
                 ->elementLabel('Calories to consume')
                 ->values($result)
                 ->labels($labelsForChart)

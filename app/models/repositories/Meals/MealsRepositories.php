@@ -28,7 +28,7 @@ class MealsRepositories {
         $saveDataPlan['start_date'] = date("Y-m-d");
         $saveDataPlan['end_date'] = $endDate;
         $saveDataPlan['weeks'] = sizeof($sessionCaloriesPerWeek);
-//        $saveDataPlan->save();
+        $saveDataPlan->save();
 
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
@@ -36,7 +36,7 @@ class MealsRepositories {
             $saveDataWeeksPlan->week_no = $key;
             $saveDataWeeksPlan->calories = $value;
             $saveDataWeeksPlan->dietPlan()->associate($saveDataPlan->id);
-//            $saveDataWeeksPlan->save();
+            $saveDataWeeksPlan->save();
         }
 
         $findWeekIds = DB::select("SELECT diet_weeks_plan.id, diet_weeks_plan.week_no,"
@@ -50,7 +50,7 @@ class MealsRepositories {
                 $saveDataToDaysPlan = new DietDays();
                 $saveDataToDaysPlan->day_no = $i;
                 $saveDataToDaysPlan->diet_weeks_plan_id = $weekId->id;
-//                $saveDataToDaysPlan->save();
+                $saveDataToDaysPlan->save();
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
                 $query = DB::select("SELECT ABBREV.NDB_No"
                                 . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
@@ -67,11 +67,10 @@ class MealsRepositories {
                     $dietMeal->NDB_No_id = $q->NDB_No;
                     $dietMeal->meal_time_id = 1;
 
-//                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
+                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
                 }
             }
         }
-        echo '<pre>';
 
         $selectWeeks = \DB::table('diet_plans')
                         ->select("users.id as user_id", "diet_plans.id as diet_plan_id", "diet_plans.weeks", "diet_plans.diet_plan_type_id")
@@ -80,14 +79,13 @@ class MealsRepositories {
                         ->where('user_id', $userId)
                         ->whereIn('diet_plans.diet_plan_type_id', [1, 2])
                         ->get()->toArray();
-//        var_dump($selectWeeks);die();
         $output = [];
         $outputDays = [];
         foreach ($selectWeeks as $week) {
             for ($i = 1; $i <= $week->weeks; $i++) {
                for($j=1;$j<=7;$j++) {
 
-                    $food["week_no_$i"]["day-no-$j"] = \DB::table('diet_days')
+                    $food["week_no_$i"]["day_$j"] = \DB::table('diet_days')
                                     ->select("diet_meals.NDB_No_id","ABBREV.Shrt_Desc","ABBREV.Energ_Kcal")
                                     ->leftJoin('diet_weeks_plan', 'diet_days.diet_weeks_plan_id', '=', 'diet_weeks_plan.id')
                                     ->where('diet_weeks_plan.diet_plan_id', '=', $week->diet_plan_id)
@@ -106,7 +104,6 @@ class MealsRepositories {
                 }
             }
         }
-        
      
         return $output;
     }

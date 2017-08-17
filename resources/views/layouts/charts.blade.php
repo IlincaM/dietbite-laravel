@@ -1,75 +1,36 @@
-<?php
-for ($i = 1; $i <= count($makeMeals); $i++) {
-    echo "<table class='table'>"
-    . "<thead>"
-    . "<tr><th>#</th>"
-    . "<th>day-1</th>"
-    . "<th>day-2</th>"
-                . "<th>day-3</th>"
-    . "<th>day-4</th>"
-    . "<th>day-5</th>"
-    . "<th>day-6</th>"
-    . "<th>day-7</th>"
-
-    . "</tr>"
-    . "</thead> 
-      <tbody>
-      <tr>
-        <td>Breakfast</td>
-        <td>";
-      
-       echo" <ul>
-        <li>dkdkd<li><li>ddjjdbs<li></ul></td>
-        <td>Pitt</td>
-        <td>35</td>
-        <td>New York</td>
-        <td>USA</td>
-      </tr>
-    </tbody>"
-    . "</table>";
-}
-
-foreach ($makeMeals as $makeTable ) {
-  dump($makeTable);
-//    foreach ($value["day-no-1"] as $v){
-//            dump($v);
-
-//    }
-}
-//    
-//    for ($i = 0; $i <= $makeTable; $i++) {
-//        echo "
-//<table class='table'>            
-//<thead>
-//        <th>#</th>";
-//        
-//        foreach ($value as $val => $v){
-//            
-//                echo "<th>$val</th>";
-//
-//        }
-//    
-//    
-//echo " </thead>
-//<tbody>
-//        <tr> 
-//            <td>Breakfast</td>";
-//foreach ($v as $plm ){
-//    echo "<td><ul><li>$plm->Shrt_Desc</li></ul></td>";
-//}
-//            echo "</tr>
-//</tbody>
-//</table>
-//";
-//        echo "<br>";
-//    }
-//}
-//die();
-//
-?>
 
 {!! Charts::assets() !!}
 {!! $lava->render() !!}
+
 <?php
-echo '<pre>';
-?>
+ $sessionCaloriesPerWeek = Session::get('result');
+        $weeks = sizeof($sessionCaloriesPerWeek);
+for ($j = 1; $j <= $weeks; $j++) { ?>
+    <table style="border: 1px solid black;font-size: 14px;" class="table">
+        <thead >
+        <th >week-{{$j}}/day</th>
+        <th>Breakfast Foods Only</th>
+    </thead>
+            <tr>
+
+    <tbody>
+        
+    <?php $i = 0 ?>
+        @foreach ($makeMeals["week_no_$j"] as $value)
+    <?php $i++ ?>   
+        <tr>
+            <td>day-{{ $i}}</td>
+        <?php
+        foreach ($value as $food) {
+            echo " <td style='font-size: 10px;'>$food->Shrt_Desc,"
+                    . "<br><span style=' font-style: italic;'>Calories: $food->Energ_Kcal<span></td>";
+        }
+        ?>
+        </tr>
+        @endforeach
+    </tbody>
+    </table>
+<br>
+        <?php }
+        ?>
+<br>
