@@ -37,7 +37,7 @@ class TestController extends Controller {
          $fakeUser=$userService->makeUserFake();
         }
         $data = new MealsRepositories(); 
-        $data= $data->getBreakfast();
+        $data= $data->makePlan();
 //        var_dump($data);
 return view('layouts.test')->with('data', $data);
     }

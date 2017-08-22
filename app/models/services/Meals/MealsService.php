@@ -19,7 +19,7 @@ class MealsService {
         $dietPlanType = $request->planType;
 
      
-        $makeBreakfast = $mealsRepo->getBreakfast($dietPlanType,$numberOfMeals);
+        $makeBreakfast = $mealsRepo->makePlan($dietPlanType,$numberOfMeals);
 
         return $makeBreakfast;
     }

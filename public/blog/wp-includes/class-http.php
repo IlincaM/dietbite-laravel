@@ -981,7 +981,7 @@ class WP_Http {
 		// Include valid cookies in the redirect process.
 		if ( ! empty( $response['cookies'] ) ) {
 			foreach ( $response['cookies'] as $cookie ) {
-				if ( $cookie->getBreakfast( $redirect_location ) )
+				if ( $cookie->makePlan( $redirect_location ) )
 					$args['cookies'][] = $cookie;
 			}
 		}

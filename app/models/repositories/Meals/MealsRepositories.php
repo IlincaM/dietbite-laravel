@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MealsRepositories {
 
-    public function getBreakfast($dietPlanType, $queryReturned) {
+    public function makePlan($dietPlanType, $numberOfMeals) {
         $sessionCaloriesPerWeek = Session::get('result');
         $userId = Auth::user()->id;
         $weeks = sizeof($sessionCaloriesPerWeek);
@@ -38,7 +38,6 @@ class MealsRepositories {
             $saveDataWeeksPlan->dietPlan()->associate($saveDataPlan->id);
             $saveDataWeeksPlan->save();
         }
-
         $findWeekIds = DB::select("SELECT diet_weeks_plan.id, diet_weeks_plan.week_no,"
                         . "diet_weeks_plan.diet_plan_id,"
                         . "diet_weeks_plan.calories, diet_plans.start_date"
