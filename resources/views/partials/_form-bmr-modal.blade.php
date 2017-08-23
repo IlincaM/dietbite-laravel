@@ -20,7 +20,10 @@
 
                 <br>
                 {{ Form::label('goal_weight', ' Your Goal Weight(kg) Is ? ') }}
+                
                 {{ Form::input('text', 'goal_weight') }}
+                <span>(has to be smaller than your weight)</span>
+
                 <span id="goal_weight_error"></span>
 
                 <br>
@@ -89,7 +92,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <button type="button" class="btn btn-primary use_this_result" data-dismiss="modal">Use this result</button>
                 </div>
             </div>
