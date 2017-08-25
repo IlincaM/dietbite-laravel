@@ -1,3 +1,8 @@
+@extends('master')
+@include('partials._head')
+
+@section('content')
+    
 <?php
 // dump($makeMeals);die();
 $sessionCaloriesPerWeek = Session::get('result');
@@ -12,7 +17,11 @@ for ($i = 1; $i <=$weeks; $i++) {
     $day6 = $days->day_6;
     $day7 = $days->day_7;
     $breakfastDay1 = $day1->breakfast;
-    if(isset($day1->lunch,$day2->lunch,$day3->lunch,$day4->lunch,$day5->lunch,$day6->lunch,$day7->lunch)){
+    if(isset($day1->lunch,$day2->lunch,$day3->lunch,$day4->lunch,$day5->lunch
+            ,$day6->lunch,$day7->lunch,
+            $day1->dinner,$day2->dinner,
+            $day3->dinner,$day4->dinner,$day5->dinner,$day6->dinner,$day7->dinner))
+            {
             $lunchDay1= $day1->lunch;
             $lunchDay2= $day2->lunch;
             $lunchDay3= $day3->lunch;
@@ -20,6 +29,15 @@ for ($i = 1; $i <=$weeks; $i++) {
             $lunchDay5= $day5->lunch;
             $lunchDay6= $day6->lunch;
             $lunchDay7= $day7->lunch;
+            $dinnerDay1= $day1->dinner;
+            $dinnerDay2= $day2->dinner;
+            $dinnerDay3= $day3->dinner;
+            $dinnerDay4= $day4->dinner;
+            $dinnerDay5= $day5->dinner;
+            $dinnerDay6= $day6->dinner;
+            $dinnerDay7= $day7->dinner;
+
+
 
     } else {
             $lunchDay1=[];
@@ -29,6 +47,15 @@ for ($i = 1; $i <=$weeks; $i++) {
             $lunchDay5=[];
             $lunchDay6=[];
             $lunchDay7=[];
+            $dinnerDay1=[];
+            $dinnerDay2=[];
+            $dinnerDay3=[];
+            $dinnerDay4=[];
+            $dinnerDay5=[];
+            $dinnerDay6=[];
+            $dinnerDay7=[];
+
+
     }
     $breakfastDay2 = $day2->breakfast;
     $breakfastDay3 = $day3->breakfast;
@@ -36,95 +63,136 @@ for ($i = 1; $i <=$weeks; $i++) {
     $breakfastDay5 = $day5->breakfast;
     $breakfastDay6 = $day6->breakfast;
     $breakfastDay7 = $day7->breakfast;
-    echo"<div style='border: 1px solid black;font-size: 14px;'>week_no_$i";
-        echo "<div>day-1";
-            echo "<div>Breakfast";
+    echo "<div class='container-fluid container-border-table'>";
+  echo "<div class='row column-color2'>";
+    echo"<div><span class='col-md-12 strong-word '>week_no_$i</span>";
+    echo "<br>";
+        echo "<div class='col-md-2 '><span class='strong-word'>day-1</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay1 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay1 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';
+            echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay1 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+            echo '</div>';
+        echo "</div>";
+        echo "<div class='col-md-2 '><span class='strong-word'>day-2</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
+                foreach ($breakfastDay2 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+            echo '</div>';
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
+                foreach ($lunchDay2 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay2 as $food) {
+                     echo "<div class='food-style'>$food</div>";
                 }
            echo '</div>';
         echo "</div>";
-        echo "<div>day-2";
-            echo "<div>Breakfast";
-                foreach ($breakfastDay2 as $food) {
-                     echo "<div>$food</div>";
-                }
-            echo '</div>';
-            echo "<div>Lunch";
-                foreach ($lunchDay2 as $food) {
-                     echo "<div>$food</div>";
-                }
-           echo '</div>';        
-        echo "</div>";
-        echo "<div>day-3";
-            echo "<div>Breakfast";
+        echo "<div class='col-md-2'><span class='strong-word'>day-3</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay3 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay3 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
-           echo '</div>';        
+           echo '</div>'; 
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay3 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';
         echo "</div>";
-        echo "<div>day-4";
-            echo "<div>Breakfast";
+        echo "<div class='col-md-2'><span class='strong-word'>day-4</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay4 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay4 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
-           echo '</div>';        
+           echo '</div>';
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay4 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';           
         echo "</div>";
-        echo "<div>day-5";
-            echo "<div>Breakfast";
+        echo "<div class='col-md-2'><span class='strong-word'>day-5</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay5 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay5 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
-           echo '</div>';        
+           echo '</div>';
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay5 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';           
         echo "</div>";
-        echo "<div>day-6";
-            echo "<div>Breakfast";
+        echo "<div class='col-md-1'><span class='strong-word'>day-6</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay6 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay6 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
-           echo '</div>';        
+           echo '</div>';
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay6 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';           
         echo "</div>";
-        echo "<div>day-7";
-            echo "<div>Breakfast";
+        echo "<div class='col-md-1'><span class='strong-word'>day-7</span>";
+            echo "<div class='breakfast-div'><span class='strong-word'>Breakfast</span>";
                 foreach ($breakfastDay7 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
             echo '</div>';
-            echo "<div>Lunch";
+            echo "<div class='lunch-div'><span class='strong-word'>Lunch</span>";
                 foreach ($lunchDay7 as $food) {
-                     echo "<div>$food</div>";
+                     echo "<div class='food-style'>$food</div>";
                 }
-           echo '</div>';        
+           echo '</div>';
+           echo "<div class='dinner-div'><span class='strong-word'>Dinner</span>";
+                foreach ($dinnerDay7 as $food) {
+                     echo "<div class='food-style'>$food</div>";
+                }
+           echo '</div>';           
         echo "</div>";
         
     echo "</div>";
+  echo "</div>";
+    echo "</div>";
+
+
 }
-die();
 ?>
 {!! Charts::assets() !!}
 {!! $lava->render() !!}
@@ -134,6 +202,8 @@ die();
 
 
 <?php
+die();
+
 $object = json_decode(json_encode($makeMeals), FALSE);
 
 
@@ -172,4 +242,4 @@ for ($j = 1; $j <= $weeks; $j++) {
     <br>
 <?php }
 ?>
-<br>
+@endsection

@@ -63,3 +63,27 @@ and open the template in the editor.
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+.container-border-table{
+    border: 1px solid black;
+}
+.strong-word{
+     font-weight: bold;
+}
+.breakfast-div{
+    background-color: papayawhip;
+}
+.lunch-div{
+    background-color: peachpuff;
+}
+.dinner-div{
+    background-color: papayawhip;
+}
+.food-style{
+    font-size: 10px;
+}
+.column-color{
+    background-color: bisque;
+}
+.column-color2{
+    background-color: blanchedalmond;
+}
