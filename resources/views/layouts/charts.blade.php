@@ -3,7 +3,14 @@
 
 @section('content')
     
-<?php
+<?php //
+ $yourInt=10;
+    $remainder=$yourInt % 3;
+    $third=floor($yourInt/3);
+    $lastBit=$third+$remainder;
+
+//    echo "The numbers are $third + $third + $lastBit.";
+//    die();
 // dump($makeMeals);die();
 $sessionCaloriesPerWeek = Session::get('result');
 $weeks = sizeof($sessionCaloriesPerWeek);

@@ -28,7 +28,7 @@ class MealsRepositories {
         $saveDataPlan['start_date'] = date("Y-m-d");
         $saveDataPlan['end_date'] = $endDate;
         $saveDataPlan['weeks'] = sizeof($sessionCaloriesPerWeek);
-//        $saveDataPlan->save();
+        $saveDataPlan->save();
 
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
@@ -36,42 +36,52 @@ class MealsRepositories {
             $saveDataWeeksPlan->week_no = $key;
             $saveDataWeeksPlan->calories = $value;
             $saveDataWeeksPlan->dietPlan()->associate($saveDataPlan->id);
-//            $saveDataWeeksPlan->save();
+            $saveDataWeeksPlan->save();
         }
         $findWeekIds = DB::select("SELECT diet_weeks_plan.id, diet_weeks_plan.week_no,"
                         . "diet_weeks_plan.diet_plan_id,"
                         . "diet_weeks_plan.calories, diet_plans.start_date"
                         . " FROM diet_weeks_plan"
-                        . " LEFT JOIN diet_plans ON diet_plans.id=diet_weeks_plan.diet_plan_id");
+                        . " LEFT JOIN diet_plans ON diet_plans.id=diet_weeks_plan.diet_plan_id"
+                        . " WHERE diet_plans.id= $saveDataPlan->id");
+//        $saveDataPlan->id
 
         foreach ($findWeekIds as $weekId) {
             $calories = $weekId->calories;
-
+           
+            $yourInt = $calories;
+            $remainder = $yourInt % $numberOfMeals;
+            $third = floor($yourInt / $numberOfMeals);
+            $lastBit = $third + $remainder;
+            
             for ($i = 1; $i <= 7; $i++) {
                 $saveDataToDaysPlan = new DietDays();
                 $saveDataToDaysPlan->day_no = $i;
                 $saveDataToDaysPlan->diet_weeks_plan_id = $weekId->id;
-//                $saveDataToDaysPlan->save();
+                $saveDataToDaysPlan->save();
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
 
                 if ($numberOfMeals == 1) {
-                    $query = $this->makeBreakfastMeal($calories, $numberOfMeals);
+                    $query = $this->makeBreakfastMeal($third, $numberOfMeals);
                 } elseif ($numberOfMeals == 2) {
-                    $calories = $calories / 2;
 
-                    $queryBreakfast = $this->makeBreakfastMeal($calories, $numberOfMeals);
+//                    $calories = $calories / 2;
+
+                    $queryBreakfast = $this->makeBreakfastMeal($third, $numberOfMeals);
 
 
-                    $queryLunch = $this->makeLunch($calories, $numberOfMeals);
+                    $queryLunch = $this->makeLunch($third, $numberOfMeals);
 
                     $query = array_merge($queryBreakfast, $queryLunch);
                 } elseif ($numberOfMeals == 3) {
-                    $calories = $calories / 3;
-                    $queryBreakfast = $this->makeBreakfastMeal($calories, $numberOfMeals);
-                    $queryLunch = $this->makeLunch($calories, $numberOfMeals);
-                    $queryDinner = $this->makeDinner($calories, $numberOfMeals);
-                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner);
 
+//                    $calories = $calories / 3;
+                    $queryBreakfast = $this->makeBreakfastMeal($third, $numberOfMeals);
+//                    var_dump($calories);
+
+                    $queryLunch = $this->makeLunch($third, $numberOfMeals);
+                    $queryDinner = $this->makeDinner($lastBit, $numberOfMeals);
+                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner);
                 } else {
                     die();
                 }
@@ -82,7 +92,7 @@ class MealsRepositories {
                     $dietMeal->NDB_No_id = $q->NDB_No;
                     $dietMeal->meal_time_id = $q->meal_time_id;
 
-//                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
+                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
                 }
             }
         }
@@ -92,7 +102,7 @@ class MealsRepositories {
                         ->leftJoin('users', 'users.id', '=', 'diet_plans.user_id')
                         ->leftJoin('diet_plan_type', 'diet_plan_type.id', '=', 'diet_plans.diet_plan_type_id')
                         ->where('user_id', $userId)
-                        ->where('diet_plans.id', 13)
+                        ->where('diet_plans.id', $saveDataPlan->id)
 //                $saveDataPlan->id
                         ->whereIn('diet_plans.diet_plan_type_id', [1, 2])
                         ->get()->toArray();
@@ -137,11 +147,12 @@ class MealsRepositories {
             }
         }
         $object = json_decode(json_encode($weeks), FALSE);
-     
+        dump($object);
+
         return $object;
     }
 
-    public function makeBreakfastMeal($calories, $numberOfMeals) {
+    public function makeBreakfastMeal($third, $numberOfMeals) {
 
 
         $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
@@ -151,7 +162,7 @@ class MealsRepositories {
                         . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
                         . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
                         . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < $calories"
+                        . " WHERE @cumSum < $third "
                         . " AND FD_GROUP.FdGrp_CD=0100"
                         . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
 
@@ -159,10 +170,11 @@ class MealsRepositories {
             $q->meal_time_id = 1;
         }
 
+
         return $query;
     }
 
-    public function makeLunch($calories, $numberOfMeals) {
+    public function makeLunch($third, $numberOfMeals) {
 
 
         $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
@@ -172,7 +184,7 @@ class MealsRepositories {
                         . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
                         . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
                         . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $calories
+                        . " WHERE @cumSum < " . $third
                         . " AND FD_GROUP.FdGrp_CD=2200"
                         . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
 
@@ -180,10 +192,11 @@ class MealsRepositories {
         foreach ($query as $q) {
             $q->meal_time_id = 2;
         }
+
         return $query;
     }
 
-    public function makeDinner($calories, $numberOfMeals) {
+    public function makeDinner($lastBit, $numberOfMeals) {
 
 
         $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
@@ -193,7 +206,7 @@ class MealsRepositories {
                         . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
                         . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
                         . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $calories
+                        . " WHERE @cumSum < " . $lastBit
                         . " AND FD_GROUP.FdGrp_CD=1600"
                         . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
 
