@@ -87,3 +87,6 @@ and open the template in the editor.
 .column-color2{
     background-color: blanchedalmond;
 }
+.hidden{
+    visibility: hidden;
+}
