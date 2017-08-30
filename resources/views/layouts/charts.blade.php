@@ -31,6 +31,7 @@ for ($i = 1; $i <= $weeks; $i++) {
         $lunchDay5 = $day5->lunch;
         $lunchDay6 = $day6->lunch;
         $lunchDay7 = $day7->lunch;
+        
         $dinnerDay1 = $day1->dinner;
         $dinnerDay2 = $day2->dinner;
         $dinnerDay3 = $day3->dinner;

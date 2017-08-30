@@ -76,8 +76,24 @@ class MealsRepositories {
                     $queryLunch = $this->makeLunch($divideCalories, $numberOfMeals);
                     $queryDinner = $this->makeDinner($divideCalories, $numberOfMeals);
                     $query = array_merge($queryBreakfast, $queryLunch, $queryDinner);
-                } else {
-                    die('feature');
+                } elseif ($numberOfMeals == 4) {
+                    $queryBreakfast = $this->makeBreakfastMeal($divideCalories, $numberOfMeals);
+
+                    $queryLunch = $this->makeLunch($divideCalories, $numberOfMeals);
+                    $queryDinner = $this->makeDinner($divideCalories, $numberOfMeals);
+                    $querySnack1 = $this->makeSnack($divideCalories, $numberOfMeals);
+
+                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner, $querySnack1);
+                } elseif ($numberOfMeals == 5) {
+                    $queryBreakfast = $this->makeBreakfastMeal($divideCalories, $numberOfMeals);
+
+                    $queryLunch = $this->makeLunch($divideCalories, $numberOfMeals);
+                    $queryDinner = $this->makeDinner($divideCalories, $numberOfMeals);
+                    $querySnack1 = $this->makeSnack($divideCalories, $numberOfMeals);
+                    $querySnack2 = $this->makeSnack2($divideCalories, $numberOfMeals);
+
+
+                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner, $querySnack1,$querySnack2);
                 }
 
                 foreach ($query as $q) {
@@ -96,7 +112,7 @@ class MealsRepositories {
                         ->leftJoin('users', 'users.id', '=', 'diet_plans.user_id')
                         ->leftJoin('diet_plan_type', 'diet_plan_type.id', '=', 'diet_plans.diet_plan_type_id')
                         ->where('user_id', $userId)
-                        ->where('diet_plans.id',$saveDataPlan->id)
+                        ->where('diet_plans.id', $saveDataPlan->id)
 //                $saveDataPlan->id
                         ->whereIn('diet_plans.diet_plan_type_id', [1, 2])
                         ->get()->toArray();
@@ -136,12 +152,17 @@ class MealsRepositories {
                         $weeks[$weekNo][$dayNo]["lunch"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
                     } elseif ($foods->meal_time_id == 3) {
                         $weeks[$weekNo][$dayNo]["dinner"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                    } elseif ($foods->meal_time_id == 4) {
+                        $weeks[$weekNo][$dayNo]["firstSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                    } elseif ($foods->meal_time_id == 5) {
+                        $weeks[$weekNo][$dayNo]["secondSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                    }else{
+                        die('feature');
                     }
                 }
             }
         }
         $object = json_decode(json_encode($weeks), FALSE);
-
         return $object;
     }
 
@@ -209,5 +230,47 @@ class MealsRepositories {
         }
         return $query;
     }
+
+    public function makeSnack($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=0900"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 4;
+        }
+        return $query;
+    }
+      public function makeSnack2($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=0900"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 5;
+        }
+        return $query;
+    }
+  
 
 }
