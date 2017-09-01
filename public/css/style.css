@@ -7,11 +7,68 @@ and open the template in the editor.
     Created on : Jun 24, 2017, 6:48:28 PM
     Author     : Ilinca
 */
+.bmr-result-div{
+    display: none;
+
+
+}
+.label-cal_input{
+    float: left;
+}
+.start_question {
+    font-size: 16px;
+    padding-left: 98px;
+}
+.not_know_div {
+    display: inline-block;
+    vertical-align: top;
+    width: 177px;
+    }
+#cal_input {
+    width: 105px;
+    display: inline;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -1px;
+    margin-bottom: 6px;
+}
+.not_know{
+    font-size: 11px;
+    margin-left: 1.5em;
+
+    }
+#number_meals, #number_meals {
+font-size: 16px;
+vertical-align: 1px;
+padding: 7px;
+width: 59px;
+display: inline;
+}
+.inline_auto {
+    display: inline;
+    width: auto;
+    }
+#hidden_goal_weight{
+    visibility: hidden;
+}
+.meals{
+    width: 134px;
+
+
+    }
+.start_question_diet{
+    top: 6px;
+}
+.noPadding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 .container-border-table{
     border: 1px solid black;
 }
 .strong-word{
-    font-weight: bold;
+     font-weight: bold;
 }
 .breakfast-div{
     background-color: papayawhip;
@@ -34,49 +91,29 @@ and open the template in the editor.
 .hidden{
     visibility: hidden;
 }
-.container-middle {
-    margin-right: auto;
+.container-style{
+     margin-right: auto;
     margin-left: auto;
     background: #F7F7F7;
-}
-
-.mx-center{
-    margin-left: 63px !important;
-    margin-right: 63px !important;
-
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    line-height: 50px;
     letter-spacing: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-
 }
-.label-form{
-    font-weight: normal;
-    padding-right: 10px; 
-
-
-}
-.label-margin{
-
-    margin-left: 53px;
-}
-.btn-color{
-    background: #46515e;
+.btn-sty{
+     background: #46515e;
     color: white;
-    margin-right: 8px!important;
-     width: 19%;
-    height: 47px;
-    padding-top: 12px !important;
-    margin-left: 3px;
+    width: 95%;
+height: 47px;
+padding-top: 12px!important;
 }
-.btn-color:hover{
+.btn-sty:hover{
     background: #7ac142;
     color: white !important;
-    padding-top: 12px !important;
 }
-.select-style{     
-    width: 19%;
-    height: 47px;
-};
+.font-size-calculate{
+    font-size: 9px;
+    letter-spacing:0px;
+}
+.select-style{
+     width: 95%;
+height: 47px;
+
+}
