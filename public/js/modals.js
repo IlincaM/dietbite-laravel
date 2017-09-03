@@ -19,11 +19,13 @@ $(document).ready(function () {
                 var goal_weight = $('#goal_weight').val();
                 console.log(goal_weight);
                 $('#hidden_goal_weight').val(goal_weight);
-                $(".bmr-result-div").show("slow");
+                $(".bmr-result-div").show();
                 $("#bmr_result").text(result);
                 $(".use_this_result").click(function () {
-                    $("#cal_input").attr("value", data.bmr_result).val(data.bmr_result);
+                    $("#cal_input").show().attr("value", data.bmr_result).val(data.bmr_result);
+                    $("#kcal").show();
 
+                    $("#cal_input").text(result);
 
                 });
 

@@ -5,21 +5,21 @@
             {!! Form::open(['method' => 'POST', 'action' => 'BmrController@storeBmrCalculation',"id" => "register"])  !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">BMR Calculation</h4>
+                <h4 class="modal-title"><i class="fa fa-calculator" aria-hidden="true"></i>BMR Calculator</h4>
             </div>
             <div class="modal-body">
 
-                {{ Form::label('age', ' How old are you? ') }}
+                {{ Form::label('age', 'Your age*') }}
                 {{ Form::input('text', 'age') }}
                 <span id="age_error"></span>
 
                 <br>
-                {{ Form::label('weight', 'Your weight(kg) is ? ') }}   
+                {{ Form::label('weight', 'Your weight*') }}   
                 {{ Form::input('text', 'weight') }}
                 <span id="weight_error"></span>
 
                 <br>
-                {{ Form::label('goal_weight', ' Your Goal Weight(kg) Is ? ') }}
+                {{ Form::label('goal_weight', 'Your desired weight*') }}
                 
                 {{ Form::input('text', 'goal_weight') }}
                 <span>(has to be smaller than your weight)</span>
@@ -27,7 +27,7 @@
                 <span id="goal_weight_error"></span>
 
                 <br>
-                {{ Form::label('height', ' Your height(cm) is ? ') }}
+                {{ Form::label('height', ' Your height*') }}
                 {{ Form::input('text', 'height') }}
                 <span id="height_error"></span>
 

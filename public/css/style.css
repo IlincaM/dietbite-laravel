@@ -18,12 +18,13 @@ and open the template in the editor.
 .start_question {
     font-size: 16px;
     padding-left: 98px;
+    
 }
 .not_know_div {
     display: inline-block;
     vertical-align: top;
     width: 177px;
-    }
+}
 #cal_input {
     width: 105px;
     display: inline;
@@ -37,28 +38,32 @@ and open the template in the editor.
     font-size: 11px;
     margin-left: 1.5em;
 
-    }
+}
 #number_meals, #number_meals {
-font-size: 16px;
-vertical-align: 1px;
-padding: 7px;
-width: 59px;
-display: inline;
+    font-size: 16px;
+    vertical-align: 1px;
+    padding: 7px;
+    width: 59px;
+    display: inline;
+    height: 49px !important;
+    padding-left: 17px;
 }
 .inline_auto {
     display: inline;
     width: auto;
-    }
+}
 #hidden_goal_weight{
     visibility: hidden;
 }
 .meals{
     width: 134px;
+    vertical-align: middle;
 
-
-    }
+}
 .start_question_diet{
     top: 6px;
+    
+    padding-bottom: 25px;
 }
 .noPadding{
     padding-left: 0px !important;
@@ -68,7 +73,7 @@ display: inline;
     border: 1px solid black;
 }
 .strong-word{
-     font-weight: bold;
+    font-weight: bold;
 }
 .breakfast-div{
     background-color: papayawhip;
@@ -92,17 +97,17 @@ display: inline;
     visibility: hidden;
 }
 .container-style{
-     margin-right: auto;
+    margin-right: auto;
     margin-left: auto;
     background: #F7F7F7;
     letter-spacing: 1px;
 }
 .btn-sty{
-     background: #46515e;
+    background: #46515e;
     color: white;
     width: 95%;
-height: 47px;
-padding-top: 12px!important;
+    height: 47px;
+    padding-top: 12px!important;
 }
 .btn-sty:hover{
     background: #7ac142;
@@ -113,7 +118,405 @@ padding-top: 12px!important;
     letter-spacing:0px;
 }
 .select-style{
-     width: 95%;
-height: 47px;
+    width: 125%;
+    height: 47px;
+    padding-left: 43px;
+
+}
+.span-diet{
+    padding-left: 53px;
+    
+}
+.type-meal{
+        padding-left: 41px;
+
+}
+.btn-makeMeal{
+   background: #7ac142;
+    color: white !important;  
+        width: 23%;
+    height: 55px;
+    position: relative;
+    left: 104px;
+}
+.btn-makeMeal:hover{
+ background: #46515e;
+    color: white;  
+        
+}
+.row-center{
+        margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#cal_input{
+     display: none;
+}
+#kcal{
+    display: none;
+}
+/*
+Modal style
+*/
+.modal-content {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+ left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+/* iPhone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+/* iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+@media only screen and (min-device-width: 412px) and (max-device-height: 732px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div{
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+/* iPhone 6+ ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+
+}
+
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;}
+.btn-sty {
+    width: 90vw !important;}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;
+}
+}
+
+/* Samsung Galaxy S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+ width: 96%;
+    left:0px !important;
+}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+.btn-makeMeal {
+ width: 96%;
+    max-width: 94%;
+}
+.not_know_div {
+    display: block !important;
+}
+.btn-makeMeal {
+    width: 65%;
+}
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+.btn-makeMeal {
+ width: 96%;
+    max-width: 94%;
+}
+.not_know_div {
+    display: block !important;
+}
+
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+.start_question {
+    padding-left: 17px !important;
+}
+.select-style {
+    width: 90vw;
+    height: 47px;
+    padding-left: 109px;
+}
+.btn-makeMeal {
+    width: 96%;
+    max-width: 96%;
+}
+.not_know_div {
+    display: block !important;
+}
 
 }
