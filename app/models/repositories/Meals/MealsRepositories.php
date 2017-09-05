@@ -12,6 +12,7 @@ use App\Models\Entities\DietDays;
 use App\Models\Entities\DietWeeksPlan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
 
 class MealsRepositories {
 
@@ -21,14 +22,16 @@ class MealsRepositories {
         $weeks = sizeof($sessionCaloriesPerWeek);
         $daysFromWeeks = $weeks * 7;
         $endDate = date('Y-m-d', strtotime("+$daysFromWeeks day"));
-
         $saveDataPlan = new DietPlan();
         $saveDataPlan['diet_plan_type_id'] = $dietPlanType;
         $saveDataPlan['user_id'] = $userId;
         $saveDataPlan['start_date'] = date("Y-m-d");
         $saveDataPlan['end_date'] = $endDate;
         $saveDataPlan['weeks'] = sizeof($sessionCaloriesPerWeek);
-        $saveDataPlan->save();
+        $dateModified=date('Y-m-d',strtotime("-1 day"));
+        $date = new DateTime($dateModified);
+
+//        $saveDataPlan->save();
 
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
@@ -43,7 +46,7 @@ class MealsRepositories {
                         . "diet_weeks_plan.calories, diet_plans.start_date"
                         . " FROM diet_weeks_plan"
                         . " LEFT JOIN diet_plans ON diet_plans.id=diet_weeks_plan.diet_plan_id"
-                        . " WHERE diet_plans.id= $saveDataPlan->id");
+                        . " WHERE diet_plans.id=  $saveDataPlan->id");
 //        $saveDataPlan->id
 
         foreach ($findWeekIds as $weekId) {
@@ -55,7 +58,12 @@ class MealsRepositories {
                 $saveDataToDaysPlan = new DietDays();
                 $saveDataToDaysPlan->day_no = $i;
                 $saveDataToDaysPlan->diet_weeks_plan_id = $weekId->id;
+//                $dateToSaveStart = $saveDataPlan['start_date'];
+                $dateToSave = $date->modify('+1 day');
+                
+                $saveDataToDaysPlan->date = $dateToSave;
                 $saveDataToDaysPlan->save();
+
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
 
                 if ($numberOfMeals == 1) {
@@ -93,7 +101,7 @@ class MealsRepositories {
                     $querySnack2 = $this->makeSnack2($divideCalories, $numberOfMeals);
 
 
-                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner, $querySnack1,$querySnack2);
+                    $query = array_merge($queryBreakfast, $queryLunch, $queryDinner, $querySnack1, $querySnack2);
                 }
 
                 foreach ($query as $q) {
@@ -124,7 +132,7 @@ class MealsRepositories {
                 for ($j = 1; $j <= 7; $j++) {
 
                     $food["week_no_$i"]["day_$j"] = \DB::table('diet_days')
-                                    ->select("diet_meals.NDB_No_id", "ABBREV.Shrt_Desc", "ABBREV.Energ_Kcal", "diet_meals.meal_time_id")
+                                    ->select("diet_meals.NDB_No_id", "ABBREV.Shrt_Desc", "ABBREV.Energ_Kcal", "diet_meals.meal_time_id","diet_days.date")
                                     ->leftJoin('diet_weeks_plan', 'diet_days.diet_weeks_plan_id', '=', 'diet_weeks_plan.id')
                                     ->where('diet_weeks_plan.diet_plan_id', '=', $week->diet_plan_id)
                                     ->where('diet_weeks_plan.week_no', '=', $i)
@@ -137,32 +145,41 @@ class MealsRepositories {
                                     })
                                     ->get()->toArray();
                     $output = $food;
+                    
                 }
             }
         }
+     
+       
+
+        
         $weeks = [];
         $breakFast = [];
         $lunchDay1 = [];
         foreach ($output as $weekNo => $daysArray) {
             foreach ($daysArray as $dayNo => $foodArray) {
+                
                 foreach ($foodArray as $foods) {
                     if ($foods->meal_time_id == 1) {
-                        $weeks[$weekNo][$dayNo]["breakfast"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                         
+
+                        $weeks[$foods->date]["breakfast"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
                     } elseif ($foods->meal_time_id == 2) {
-                        $weeks[$weekNo][$dayNo]["lunch"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                        $weeks[$foods->date]["lunch"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
                     } elseif ($foods->meal_time_id == 3) {
-                        $weeks[$weekNo][$dayNo]["dinner"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                        $weeks[$foods->date]["dinner"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
                     } elseif ($foods->meal_time_id == 4) {
-                        $weeks[$weekNo][$dayNo]["firstSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                        $weeks[$foods->date]["firstSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
                     } elseif ($foods->meal_time_id == 5) {
-                        $weeks[$weekNo][$dayNo]["secondSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
-                    }else{
+                        $weeks[$foods->date]["secondSnack"][] = $foods->Shrt_Desc . " calories " . $foods->Energ_Kcal;
+                    } else {
                         die('feature');
                     }
                 }
             }
         }
         $object = json_decode(json_encode($weeks), FALSE);
+       
         return $object;
     }
 
@@ -251,7 +268,8 @@ class MealsRepositories {
         }
         return $query;
     }
-      public function makeSnack2($divideCalories, $numberOfMeals) {
+
+    public function makeSnack2($divideCalories, $numberOfMeals) {
 
 
         $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
@@ -271,6 +289,28 @@ class MealsRepositories {
         }
         return $query;
     }
-  
+
+    public function updateDates() {
+        // Start date
+        $dateToSaveStart = $saveDataPlan['start_date'];
+        // End date
+        $endDate = date('Y-m-d', strtotime("+$daysFromWeeks day"));
+        $dates = [];
+        while (strtotime($dateToSaveStart) <= strtotime($endDate)) {
+            $dateToSaveStart = date("Y-m-d", strtotime("+1 day", strtotime($dateToSaveStart)));
+            $saveDataToDaysPlan->date = $dateToSaveStart;
+
+//                    echo "$dateToSaveStart\n";
+            $dates[] = $dateToSaveStart;
+        }
+        foreach ($dates as $dateDb) {
+            $datesToDb = new DietDays;
+            $saveDataToDaysPlan->date = $dateDb;
+            $saveDataToDaysPlan->save();
+            dump($dateDb);
+        }
+//                dump($dates);
+//                die();
+    }
 
 }
