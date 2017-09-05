@@ -31,7 +31,7 @@ class MealsRepositories {
         $dateModified=date('Y-m-d',strtotime("-1 day"));
         $date = new DateTime($dateModified);
 
-//        $saveDataPlan->save();
+        $saveDataPlan->save();
 
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
