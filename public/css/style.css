@@ -162,6 +162,48 @@ Modal style
     padding-left: 25px;
     padding-right: 25px;
 }
+
+
+.container-meals{
+   margin-bottom: 100px;
+
+} 
+.breakfast-result-div{
+    display: none;
+
+
+}
+.breakfast-result-divv{
+    display: none;
+
+
+}
+#brk{
+        display: none;
+
+}
+.lunch-result-div{
+    display: none;
+
+
+}
+#lnc{
+        display: none;
+
+}
+.dinner-result-div{
+    display: none;
+
+
+}
+#dnr{
+        display: none;
+
+}
+.food-breakfast{
+        display: none;
+
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */

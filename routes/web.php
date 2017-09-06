@@ -25,3 +25,4 @@ Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation'
 Route::post('login', 'Auth\LoginController@authenticate')->name('login');
 Route::post('/calculate', 'BmrController@storeBmrCalculation');
 Route::post('/charts', 'ChartsController@store');
+Route::get('/charts', 'ChartsController@listData');

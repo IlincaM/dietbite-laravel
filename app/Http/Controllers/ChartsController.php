@@ -45,9 +45,13 @@ class ChartsController extends Controller {
         $makeMeals = $mealsService->makeBreakfast($request, $mealsRepo);
          $data = new BmrService();
          
-        return view('layouts.index', ['data' => $data->getDataFormBmr(), 'makeMeals' => $makeMeals]);
+//        return view('layouts.index', ['data' => $data->getDataFormBmr(), 'makeMeals' => $makeMeals]);
 
-//        return view('layouts.charts', ['lava' => $lava, 'makeMeals' => $makeMeals]);
+        return view('layouts.charts', ['lava' => $lava, 'makeMeals' => $makeMeals]);
+    }
+    public function listData(){
+                return response()->json();
+
     }
 
     /**
