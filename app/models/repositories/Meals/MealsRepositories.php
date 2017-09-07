@@ -31,7 +31,7 @@ class MealsRepositories {
         $dateModified = date('Y-m-d', strtotime("-1 day"));
         $date = new DateTime($dateModified);
 
-//        $saveDataPlan->save();
+        $saveDataPlan->save();
 
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
@@ -39,14 +39,14 @@ class MealsRepositories {
             $saveDataWeeksPlan->week_no = $key;
             $saveDataWeeksPlan->calories = $value;
             $saveDataWeeksPlan->dietPlan()->associate($saveDataPlan->id);
-//            $saveDataWeeksPlan->save();
+            $saveDataWeeksPlan->save();
         }
         $findWeekIds = DB::select("SELECT diet_weeks_plan.id, diet_weeks_plan.week_no,"
                         . "diet_weeks_plan.diet_plan_id,"
                         . "diet_weeks_plan.calories, diet_plans.start_date"
                         . " FROM diet_weeks_plan"
                         . " LEFT JOIN diet_plans ON diet_plans.id=diet_weeks_plan.diet_plan_id"
-                        . " WHERE diet_plans.id= 10");
+                        . " WHERE diet_plans.id= $saveDataPlan->id");
 //        $saveDataPlan->id
 
         foreach ($findWeekIds as $weekId) {
@@ -62,7 +62,7 @@ class MealsRepositories {
                 $dateToSave = $date->modify('+1 day');
 
                 $saveDataToDaysPlan->date = $dateToSave;
-//                $saveDataToDaysPlan->save();
+                $saveDataToDaysPlan->save();
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
 
                 if ($numberOfMeals == 1) {
@@ -109,7 +109,7 @@ class MealsRepositories {
                     $dietMeal->NDB_No_id = $q->NDB_No;
                     $dietMeal->meal_time_id = $q->meal_time_id;
 
-//                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
+                    $dietMeal->dietDay()->associate($saveDataToDaysPlan->id)->save();
                 }
             }
         }
@@ -119,7 +119,7 @@ class MealsRepositories {
                         ->leftJoin('users', 'users.id', '=', 'diet_plans.user_id')
                         ->leftJoin('diet_plan_type', 'diet_plan_type.id', '=', 'diet_plans.diet_plan_type_id')
                         ->where('user_id', $userId)
-                        ->where('diet_plans.id', 10)
+                        ->where('diet_plans.id', $saveDataPlan->id)
 //                $saveDataPlan->id
                         ->whereIn('diet_plans.diet_plan_type_id', [1, 2])
                         ->get()->toArray();
