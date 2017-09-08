@@ -146,7 +146,7 @@ and open the template in the editor.
 }
 .row-center{
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 #cal_input{
@@ -166,16 +166,24 @@ Modal style
 
 .your-age-text{
     text-align: right;
+    padding-top: 11px;
 }
 .your-age-input input{
     width: 100%;
     text-align: right;
+    height: 47px;
+}
+.your-age-input{
+  
+}
+.gender-style{
+    padding-top: 0px;
 }
 .goal_weight-span{
     font-size: 9px;
-color: red;
-text-align: right;
-float: right;
+    color: red;
+    text-align: right;
+    float: right;
 }
 .text-right{
     text-align: right;
@@ -191,41 +199,43 @@ float: right;
     float: right;
 }
 .submitCalculator{
-    width: 74%;
-height: 47px;
-float: right;
-margin-top: 11px;}
+    width: 100%;
+    height: 47px;
+    float: right;
+    margin-top: 11px;}
 .col-Cpd{
     float: right;
     font-weight: bold;
     padding-top: 19px;
 }
 .div-bmr-result{
-    width: 74%;
-height: 47px;
-float: right;
-margin-top: 11px;
-text-align: right;
-padding-top: 13px;
-padding-right: 18px;
-border: 2px solid grey;
+    width: 100%;
+    height: 47px;
+    float: right;
+    margin-top: 11px;
+    text-align: right;
+    padding-top: 13px;
+    padding-right: 18px;
+    border: 2px solid grey;
 }
 .use-res-style{
-    width: 74%;
-height: 47px;
-float: right;
-margin-top: 11px;
-text-align: center;
-background: #2D3134;
-font-weight: bold;
-color: white;
+    width: 100%;
+    height: 47px;
+    float: right;
+    margin-top: 11px;
+    text-align: center;
+    background: #2D3134;
+    font-weight: bold;
+    color: white;
 }
 .use-res-style:hover{
 
-color: white !important;
+    color: white !important;
 }
 
-
+.modal-footer{
+    border-top-width: 0 !important;
+}
 /************Breakfast table**************/
 
 
@@ -260,8 +270,8 @@ color: white !important;
 .breakfast-result-div{
     display: none;
     font-size: 9px;
-     white-space: nowrap;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 }
 .container-break{
@@ -309,7 +319,7 @@ color: white !important;
     color: white;
     background:#2D3134;
     max-width: 30%;
-border-bottom: 1px solid;
+    border-bottom: 1px solid;
 }
 
 #lnc{
@@ -369,7 +379,7 @@ border-bottom: 1px solid;
 }
 
 .btn-xs-style-lunch i{
- background:#62B230;
+    background:#62B230;
     color: #2D3134;
     height: 14px;
     width: 17px;
@@ -382,8 +392,8 @@ border-bottom: 1px solid;
 .lunch-result-div{
     display: none;
     font-size: 9px;
-   white-space: nowrap;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 
 }
@@ -428,13 +438,13 @@ border-bottom: 1px solid;
 .dinner-result-div{
     display: none;
     font-size: 9px;
-white-space: nowrap;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .container-dinner{
     margin-top: 9px;
     display: none;
-    
+
 
     background: #bdc2c5;
 
@@ -501,13 +511,13 @@ white-space: nowrap;
 .snack-result-div{
     display: none;
     font-size: 9px;
-white-space: nowrap;
-  text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .container-snack{
     margin-top: 9px;
     display: none;
-    
+
 
     background: #bdc2c5;
 
