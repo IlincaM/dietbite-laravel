@@ -174,7 +174,7 @@ Modal style
     height: 47px;
 }
 .your-age-input{
-  
+
 }
 .gender-style{
     padding-top: 0px;
@@ -553,7 +553,18 @@ Modal style
     display: none;
 }
 
-/*gggggggg*/
+/*Get Meals Table*/
+.container-plan{
+    color: #2D3134;
+    text-align: center;
+    padding-bottom: 18px;
+    padding-top: 10px;
+}
+.container-plan span{
+    font-weight: bold;
+    color: #62B230;
+
+}
 .col-text{
     text-align: left;
 }
@@ -563,7 +574,12 @@ Modal style
     display: none;
 
 }
-
+.getMealsTable{
+    padding-bottom: 50px;
+}
+.container-chart{
+    max-width: 50%;
+}
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     /* Styles */

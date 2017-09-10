@@ -12,7 +12,6 @@ use Repositories\Meals\MealsRepositories;
 use Services\MealsService\MealsService;
 use Services\Bmr\BmrService;
 
-
 class ChartsController extends Controller {
 
     /**
@@ -43,15 +42,24 @@ class ChartsController extends Controller {
         $lava = new ChartsService();
         $lava = $chartService->makeBarChart($request, $bmrRepo, $user);
         $makeMeals = $mealsService->makeBreakfast($request, $mealsRepo);
-         $data = new BmrService();
-         
+
 //        return view('layouts.index', ['data' => $data->getDataFormBmr(), 'makeMeals' => $makeMeals]);
 
-        return view('layouts.charts', ['lava' => $lava, 'makeMeals' => $makeMeals]);
+        return view('layouts.getMeals', ['makeMeals' => $makeMeals]);
     }
-    public function listData(){
-                return response()->json();
 
+    public function listData() {
+
+        return response()->json();
+    }
+
+    public function showChart(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user, MealsService $mealsService, MealsRepositories $mealsRepo) {
+        $lava = new ChartsService();
+        $lava = $chartService->makeBarChart($request, $bmrRepo, $user);
+
+//        return view('layouts.index', ['data' => $data->getDataFormBmr(), 'makeMeals' => $makeMeals]);
+
+        return view('layouts.getChart', ['lava' => $lava]);
     }
 
     /**

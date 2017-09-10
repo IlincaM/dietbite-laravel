@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/resources/views/layouts/index.blade.php</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/public/js/modals.js</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/dietbite-laravel/resources/views/partials/_form-bmr-modal.blade.php</file>
+            <file>file:/var/www/html/dietbite-laravel/public/js/getMeals.js</file>
+            <file>file:/var/www/html/dietbite-laravel/resources/views/layouts/index.blade.php</file>
+            <file>file:/var/www/html/dietbite-laravel/app/models/repositories/Meals/MealsRepositories.php</file>
+            <file>file:/var/www/html/dietbite-laravel/resources/views/partials/charts.blade.php</file>
+            <file>file:/var/www/html/dietbite-laravel/public/css/style.css</file>
+            <file>file:/var/www/html/dietbite-laravel/resources/views/master.blade.php</file>
         </group>
     </open-files>
 </project-private>

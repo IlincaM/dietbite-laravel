@@ -24,5 +24,6 @@ Route::get('/testTest2', 'TestController@testTest2');
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');
 Route::post('login', 'Auth\LoginController@authenticate')->name('login');
 Route::post('/calculate', 'BmrController@storeBmrCalculation');
-Route::post('/charts', 'ChartsController@store');
-Route::get('/charts', 'ChartsController@listData');
+Route::post('/get-meals', 'ChartsController@store');
+Route::get('/get-meals', 'ChartsController@listData');
+Route::get('/chart', 'ChartsController@showChart');

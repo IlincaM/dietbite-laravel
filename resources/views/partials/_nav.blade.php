@@ -20,14 +20,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
-              
+
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item ">
                     <a class="nav-link" href="/">Calories Calculator <span class="sr-only">(current)</span></a>
+
                 </li>
+               
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                 <li class="hidden"><a href="{{ route('login') }}">Login</a></li>
@@ -51,6 +53,10 @@
                             </form>
                         </li>
                     </ul>
+                </li>
+                 <li class="nav-link">
+                    <a class="nav-link" href="/chart">Diet Plan Chart</a>
+
                 </li>
                 @endif
             </ul>

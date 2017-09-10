@@ -1,33 +1,39 @@
 @extends('master')
 @include('partials._head')
-
 @section('content')
-<!--{!! Charts::assets() !!}
-{!! $lava->render() !!}    -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="{{ URL::asset('js/moment.js') }}"></script>
+
+<script src="./pg-calendar/dist/js/pignose.calendar.js"></script>
+
+<script type="text/javascript" src="{{ URL::asset('js/modals.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/getMeals.js') }}"></script>
+
 
 <?php
 
-?>
-<?php
-//dump($makeMeals);
 echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
 ?>
+<div class="container container-plan">
+<p>Your diet plan starts on <span class="firstDay"></span> and ends on <span class="lastDay"></span> </p>
+</div>
 <div class="calendar-dark"></div>
 
 
 </div>
 
-
+<div class="getMealsTable"> 
 <div class="container container-meals container-meals-breakfast">
     <div class="row">
         <div id="brk">
             <div class="brk-div">
-                <a class="btn-xs-style" href="javascript:void"><i class="fa fa-plus"></i>Breakfast</a>
+                <a class="btn-xs-style" href="#"><i class="fa fa-plus"></i>Breakfast</a>
             </div>
             <div>
                 <div class="col-md-12 container-break">
-                    <div class="col-md-6 col-food" >Food</div>
-                    <div class="col-md-6 col-calories">Calories</div>
+                    <div class="col-md-10 col-food" >Food</div>
+                    <div class="col-md-2 col-calories">Calories</div>
                 </div>
                 <div class="breakfast-result-div ">
 
@@ -40,14 +46,14 @@ echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
     <div class="row">
         <div id="lnc">
             <div class="lnc-div">
-                <a class="btn-xs-style-lunch" href="javascript:void"><i class="fa fa-plus"></i>
+                <a class="btn-xs-style-lunch" href="#"><i class="fa fa-plus"></i>
                     Lunch</a>
 
             </div>
             <div class="container col-md-12 container-lunch">
 
-                <div class="col-md-6 col-food" >Food</div>
-                <div class="col-md-6 col-calories">Calories</div>
+                <div class="col-md-10 col-food" >Food</div>
+                <div class="col-md-2 col-calories">Calories</div>
             </div>
             <div class="lunch-result-div">
 
@@ -60,12 +66,12 @@ echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
     <div class="row">
         <div id="dnr">
             <div class="dnr-div">
-                <a class="btn-xs-style-dinner" href="javascript:void"><i class="fa fa-plus"></i>Dinner</a>
+                <a class="btn-xs-style-dinner" href="#"><i class="fa fa-plus"></i>Dinner</a>
             </div>
             <div>
                 <div class="col-md-12 container-dinner">
-                    <div class="col-md-6 col-food" >Food</div>
-                    <div class="col-md-6 col-calories">Calories</div>
+                    <div class="col-md-10 col-food" >Food</div>
+                    <div class="col-md-2 col-calories">Calories</div>
                 </div>
                 <div class="dinner-result-div ">
 
@@ -78,12 +84,12 @@ echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
     <div class="row">
         <div id="snk">
             <div class="snk-div">
-                <a class="btn-xs-style-snack" href="javascript:void"><i class="fa fa-plus"></i>Snack 1</a>
+                <a class="btn-xs-style-snack" href="#" ><i class="fa fa-plus"></i>Snack 1</a>
             </div>
             <div>
                 <div class="col-md-12 container-snack">
-                    <div class="col-md-6 col-food" >Food</div>
-                    <div class="col-md-6 col-calories">Calories</div>
+                    <div class="col-md-10 col-food" >Food</div>
+                    <div class="col-md-2 col-calories">Calories</div>
                 </div>
                 <div class="snack-result-div ">
 
@@ -92,16 +98,11 @@ echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
         </div>
     </div>
 </div>
+</div>
 
 @section('scripts')
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="{{ URL::asset('js/moment.js') }}"></script>
 
-<script src="./pg-calendar/dist/js/pignose.calendar.js"></script>
-
-<script type="text/javascript" src="{{ URL::asset('js/modals.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/getMeals.js') }}"></script>
 
 <script>
 
@@ -110,13 +111,13 @@ $('.calendar-dark').pignoseCalendar({
     select: onClickHandler
 });
 function onClickHandler(date, obj) {
+        
     /**
      * @date is an array which be included dates(clicked date at first index)
      * @obj is an object which stored calendar interal data.
      * @obj.calendar is an element reference.
      * @obj.storage.activeDates is all toggled data, If you use toggle type calendar.
      */
-
     var $calendar = obj.calendar;
     var $box = $calendar.parent().siblings('.box').show();
     var text = 'You choose date ';
@@ -139,13 +140,12 @@ function onClickHandler(date, obj) {
     $box.text(text);
     var dateToQuery = date[0].format('YYYY-MM-DD');
 
-    miniReport(dateToQuery);
+     getMeals(dateToQuery);
 
 
-
-}
-
-function miniReport(dateToQuery) {
+};
+function getMeals(dateToQuery) {
+    
     var dateSelected = dateToQuery;
 
 
@@ -158,18 +158,19 @@ function miniReport(dateToQuery) {
             $(".container-meals-breakfast").show();
 
             $.each(json[dateSelected].breakfast, function (index, value) {
+
                 $(".breakfast-result-div").empty();
 
 
                 $.ajax({
                     type: "GET",
-                    url: "/charts",
+                    url: "/get-meals",
                     dataType: "json",
                     success: function (data) {
 
-                        $(".breakfast-result-div").append('<div class="col-md-6 col-color col-text"><div>' + index + '</div></div>');
+                        $(".breakfast-result-div").append('<div class="col-md-10 col-color col-text"><div>' + index + '</div></div>');
 
-                        $(".breakfast-result-div").append('<div class="col-md-6 col-color col-value">' + value + '</div>');
+                        $(".breakfast-result-div").append('<div class="col-md-2 col-color col-value">' + value + '</div>');
 
                     },
                     error: function () {
@@ -193,14 +194,14 @@ function miniReport(dateToQuery) {
 
                 $.ajax({
                     type: "GET",
-                    url: "/charts",
+                    url: "/get-meals",
                     dataType: "json",
                     success: function (data) {
 
 
-                        $(".lunch-result-div").append('<div class="col-md-6 col-color col-text">' + index + '</div>');
+                        $(".lunch-result-div").append('<div class="col-md-10 col-color col-text">' + index + '</div>');
 
-                        $(".lunch-result-div").append('<div class="col-md-6 col-color col-value">' + value + '</div>');
+                        $(".lunch-result-div").append('<div class="col-md-2 col-color col-value">' + value + '</div>');
                     },
                     error: function () {
                         alert("error");
@@ -222,14 +223,14 @@ function miniReport(dateToQuery) {
 
                 $.ajax({
                     type: "GET",
-                    url: "/charts",
+                    url: "/get-meals",
                     dataType: "json",
                     success: function (data) {
 
 
-                        $(".dinner-result-div").append('<div class="col-md-6 col-color col-text">' + index + '</div>');
+                        $(".dinner-result-div").append('<div class="col-md-10 col-color col-text">' + index + '</div>');
 
-                        $(".dinner-result-div").append('<div class="col-md-6 col-color col-value">' + value + '</div>');
+                        $(".dinner-result-div").append('<div class="col-md-2 col-color col-value">' + value + '</div>');
 
 
                     },
@@ -246,20 +247,20 @@ function miniReport(dateToQuery) {
             $(".snk-div").show();
             $(".container-meals-snack").show();
             
-            $.each(json[dateSelected].dinner, function (index, value) {
+            $.each(json[dateSelected].firstSnack, function (index, value) {
                 $(".snack-result-div").empty();
 
 
                 $.ajax({
                     type: "GET",
-                    url: "/charts",
+                    url: "/get-meals",
                     dataType: "json",
                     success: function (data) {
 
 
-                        $(".snack-result-div").append('<div class="col-md-6 col-color col-text">' + index + '</div>');
+                        $(".snack-result-div").append('<div class="col-md-10 col-color col-text">' + index + '</div>');
 
-                        $(".snack-result-div").append('<div class="col-md-6 col-color col-value">' + value + '</div>');
+                        $(".snack-result-div").append('<div class="col-md-2 col-color col-value">' + value + '</div>');
 
 
                     },
@@ -273,41 +274,8 @@ function miniReport(dateToQuery) {
         }
     });
 }
-$(".btn-xs-style").click(function () {
-    $(".container-break").toggle();
-    ;
-    $(".breakfast-result-div").toggle();
-
-    $(".btn-xs-style").find('i').toggleClass('fa-plus fa-times');
-});
-
-$(".btn-xs-style-lunch").click(function () {
-    $(".container-lunch").toggle();
-    ;
-
-    $(".lunch-result-div").toggle();
-
-    $(".btn-xs-style-lunch").find('i').toggleClass('fa-plus fa-times');
-});
-$(".btn-xs-style-dinner").click(function () {
-    $(".container-dinner").toggle();
-    ;
-
-    $(".dinner-result-div").toggle();
-
-    $(".btn-xs-style-dinner").find('i').toggleClass('fa-plus fa-times');
-});
-$(".btn-xs-style-snack").click(function () {
-    $(".container-snack").toggle();
-    ;
-
-    $(".snack-result-div").toggle();
-
-    $(".btn-xs-style-snack").find('i').toggleClass('fa-plus fa-times');
-});
-
+ 
 </script>
-<script src="js/pignose.calendar.me.js"></script>
 
 
 @endsection                      
