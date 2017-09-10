@@ -75,7 +75,7 @@ class ChartsService {
         $weeks = ($weight - $goalWeight) / 0.6;
         $labelsForChart = [];
         for ($i = 1; $i <= $weeks; $i++) {
-            $bmrResult = $bmrResult * (100 - 7.5) / 100;
+            $bmrResult = intval($bmrResult * (100 - 7.5) / 100);
             $result[$i] = $bmrResult;
 
             $labelsForChart[$i] = $i;

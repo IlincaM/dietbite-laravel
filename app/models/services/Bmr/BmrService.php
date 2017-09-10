@@ -32,11 +32,11 @@ class BmrService {
         if ($data->gender == "male") {
             (float) $activityAndExercise = $data->activityLevel + $data->exerciseLevel;
             (float) $calculate = 9.99 * $data->weight + 6.25 * $data->height - 4.92 * $data->age + 5;
-            (float) $result = $calculate * $activityAndExercise;
+            (int) $result =intval( $calculate * $activityAndExercise);
         } else {
             (float) $activityAndExercise = $data->activityLevel + $data->exerciseLevel;
             (float) $calculat = 9.99 * $data->weight + 6.25 * $data->height - 4.92 * $data->age - 161;
-            (float) $result = $calculat * $activityAndExercise;
+            (int) $result = intval($calculat * $activityAndExercise);
         }
         $data->bmr_result = $result;
         if (Auth::user() == true) {
