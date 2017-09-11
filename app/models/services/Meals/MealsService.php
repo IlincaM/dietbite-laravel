@@ -18,10 +18,19 @@ class MealsService {
         $numberOfMeals = $request->nummeals;
         $dietPlanType = $request->planType;
 
-     
-        $makeBreakfast = $mealsRepo->makePlan($dietPlanType,$numberOfMeals);
+
+        $makeBreakfast = $mealsRepo->makePlan($dietPlanType, $numberOfMeals);
 
         return $makeBreakfast;
     }
+
+    public function makeMealsTable(Request $request, MealsRepositories $mealsRepo) {
+        $numberOfMeals = $request->nummeals;
+        $dietPlanType = $request->planType;
+        $makeDietPlan = $mealsRepo->makePlan($dietPlanType, $numberOfMeals);
+        $makeDietPlanTable = $mealsRepo->getDatesForPlan($makeDietPlan);
+        return $makeDietPlanTable;
+    }
+
 
 }

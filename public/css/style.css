@@ -195,6 +195,9 @@ Modal style
 #activityLevel{
     float: right;
 }
+.labelActive{
+    padding-right: 6px;
+}
 #exerciseLevel{
     float: right;
 }

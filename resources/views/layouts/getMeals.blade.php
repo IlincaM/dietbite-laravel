@@ -13,7 +13,7 @@
 
 <?php
 
-echo '<script> var json = ' . json_encode($makeMeals) . '</script>';
+echo '<script> var json = ' . $makeMeals . '</script>';
 ?>
 <div class="container container-plan">
 <p>Your diet plan starts on <span class="firstDay"></span> and ends on <span class="lastDay"></span> </p>

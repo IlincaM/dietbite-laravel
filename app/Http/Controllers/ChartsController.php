@@ -38,20 +38,6 @@ class ChartsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user, MealsService $mealsService, MealsRepositories $mealsRepo) {
-        $lava = new ChartsService();
-        $lava = $chartService->makeBarChart($request, $bmrRepo, $user);
-        $makeMeals = $mealsService->makeBreakfast($request, $mealsRepo);
-
-//        return view('layouts.index', ['data' => $data->getDataFormBmr(), 'makeMeals' => $makeMeals]);
-
-        return view('layouts.getMeals', ['makeMeals' => $makeMeals]);
-    }
-
-    public function listData() {
-
-        return response()->json();
-    }
 
     public function showChart(Request $request, ChartsService $chartService, BmrResultRepository $bmrRepo, UserService $user, MealsService $mealsService, MealsRepositories $mealsRepo) {
         $lava = new ChartsService();

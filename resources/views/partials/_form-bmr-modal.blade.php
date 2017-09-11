@@ -91,13 +91,14 @@
                         @foreach ($bmrActivity as $bmrActivityValues)
                         <div class="col-md-6">
                             {{ Form::label('activityLevel', 'Sedentary') }}
+
                             {{ Form::radio('activityLevel', $bmrActivityValues["sedentary"]) }}
+
                             {{ Form::label('activityLevel', 'Light Activity') }}
                             {{ Form::radio('activityLevel', $bmrActivityValues["light_activity"]) }}
                         </div>
                         <div class="col-md-6">
-
-                            {{ Form::label('activityLevel', ' Active') }}
+                            <label class="labelActive" for="activityLevel"> Active</label>
                             {{ Form::radio('activityLevel', $bmrActivityValues["normal_active"]) }}
                             {{ Form::label('activityLevel', ' Very Active ') }}
                             {{ Form::radio('activityLevel', $bmrActivityValues["very_active"]) }}
@@ -141,15 +142,15 @@
                 </div>
                 <hr>
                 <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
-                    <input name="submit" type="submit" class="submitCalculator btn btn-success" value="Calculate">
-                    {!! Form::close() !!}
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <input name="submit" type="submit" class="submitCalculator btn btn-success" value="Calculate">
+                        {!! Form::close() !!}
 
-                </div>
+                    </div>
                 </div>
                 <div class=" row bmr-result-div">
-                    
+
                     <div class="col-md-4 col-Cpd">
                         <div>Recommended CPD</div>
                     </div>

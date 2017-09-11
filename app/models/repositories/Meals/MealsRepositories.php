@@ -16,6 +16,11 @@ use DateTime;
 
 class MealsRepositories {
 
+    /**
+     * Create and save to DB diet plan meals,days and weeks after the BMR calculation.
+     * @param  int  $dietPlanType, $numberOfMeals
+     * @return $dietPlanType saved in the Db
+     */
     public function makePlan($dietPlanType, $numberOfMeals) {
         $sessionCaloriesPerWeek = Session::get('result');
         $userId = Auth::user()->id;
@@ -114,6 +119,149 @@ class MealsRepositories {
             }
         }
 
+
+        return $saveDataPlan;
+    }
+
+    /**
+     * Make breakfast meal. The meals are selected from the food group 0100 .
+     * @param  int  $divideCalories, $numberOfMeals
+     * @return $query
+     */
+    public function makeBreakfastMeal($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < $divideCalories "
+                        . " AND FD_GROUP.FdGrp_CD=0100"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 1;
+        }
+
+
+        return $query;
+    }
+
+    /**
+     * Make lunch meal. The meals are selected from the food group 2200 .
+     * @param  int  $divideCalories, $numberOfMeals
+     * @return $query
+     */
+    public function makeLunch($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=2200"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 2;
+        }
+
+        return $query;
+    }
+
+    /**
+     * Make dinner meal. The meals are selected from the food group 1600 .
+     * @param  int  $divideCalories, $numberOfMeals
+     * @return $query
+     */
+    public function makeDinner($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=1600"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 3;
+        }
+        return $query;
+    }
+
+    /**
+     * Make first snack meal (fruits and vegetables). The meals are selected from the food group 0900 .
+     * @param  int  $divideCalories, $numberOfMeals
+     * @return $query
+     */
+    public function makeSnack($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=0900"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 4;
+        }
+        return $query;
+    }
+
+    /**
+     * Make second snack meal (fruits and vegetables). The meals are selected from the food group 0900 .
+     * @param  int  $divideCalories, $numberOfMeals
+     * @return $query
+     */
+    public function makeSnack2($divideCalories, $numberOfMeals) {
+
+
+        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
+                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
+                        . " AS cumSum"
+                        . " FROM ABBREV"
+                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
+                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+                        . " JOIN (select @cumSum := 0.0) B "
+                        . " WHERE @cumSum < " . $divideCalories
+                        . " AND FD_GROUP.FdGrp_CD=0900"
+                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+
+
+        foreach ($query as $q) {
+            $q->meal_time_id = 5;
+        }
+        return $query;
+    }
+
+    /**
+     * Get the meals for the plan .
+     * @param  int  $saveDataPlan
+     * @return $object
+     */
+    public function getDatesForPlan($saveDataPlan) {
+        $userId = Auth::user()->id;
         $selectWeeks = \DB::table('diet_plans')
                         ->select("users.id as user_id", "diet_plans.id as diet_plan_id", "diet_plans.weeks", "diet_plans.diet_plan_type_id")
                         ->leftJoin('users', 'users.id', '=', 'diet_plans.user_id')
@@ -183,138 +331,9 @@ class MealsRepositories {
                 }
             }
         }
-        $object = json_decode(json_encode($weeks), FALSE);
+        $object = json_encode($weeks);
 
         return $object;
-    }
-
-    public function makeBreakfastMeal($divideCalories, $numberOfMeals) {
-
-
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < $divideCalories "
-                        . " AND FD_GROUP.FdGrp_CD=0100"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
-
-        foreach ($query as $q) {
-            $q->meal_time_id = 1;
-        }
-
-
-        return $query;
-    }
-
-    public function makeLunch($divideCalories, $numberOfMeals) {
-
-
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $divideCalories
-                        . " AND FD_GROUP.FdGrp_CD=2200"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
-
-
-        foreach ($query as $q) {
-            $q->meal_time_id = 2;
-        }
-
-        return $query;
-    }
-
-    public function makeDinner($divideCalories, $numberOfMeals) {
-
-
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $divideCalories
-                        . " AND FD_GROUP.FdGrp_CD=1600"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
-
-
-        foreach ($query as $q) {
-            $q->meal_time_id = 3;
-        }
-        return $query;
-    }
-
-    public function makeSnack($divideCalories, $numberOfMeals) {
-
-
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $divideCalories
-                        . " AND FD_GROUP.FdGrp_CD=0900"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
-
-
-        foreach ($query as $q) {
-            $q->meal_time_id = 4;
-        }
-        return $query;
-    }
-
-    public function makeSnack2($divideCalories, $numberOfMeals) {
-
-
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < " . $divideCalories
-                        . " AND FD_GROUP.FdGrp_CD=0900"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
-
-
-        foreach ($query as $q) {
-            $q->meal_time_id = 5;
-        }
-        return $query;
-    }
-
-    public function updateDates() {
-        // Start date
-        $dateToSaveStart = $saveDataPlan['start_date'];
-        // End date
-        $endDate = date('Y-m-d', strtotime("+$daysFromWeeks day"));
-        $dates = [];
-        while (strtotime($dateToSaveStart) <= strtotime($endDate)) {
-            $dateToSaveStart = date("Y-m-d", strtotime("+1 day", strtotime($dateToSaveStart)));
-            $saveDataToDaysPlan->date = $dateToSaveStart;
-
-//                    echo "$dateToSaveStart\n";
-            $dates[] = $dateToSaveStart;
-        }
-        foreach ($dates as $dateDb) {
-            $datesToDb = new DietDays;
-            $saveDataToDaysPlan->date = $dateDb;
-            $saveDataToDaysPlan->save();
-        }
-//                dump($dates);
-//                die();
     }
 
 }
