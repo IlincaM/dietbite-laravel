@@ -24,4 +24,8 @@ class GetMealsController extends Controller
 
         return response()->json();
     }
+    public function foodException(){
+        return view('layouts.allergies');
+    }
+    
 }

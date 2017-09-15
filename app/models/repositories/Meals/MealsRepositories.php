@@ -13,6 +13,7 @@ use App\Models\Entities\DietWeeksPlan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\models\entities\UserAllergies;
 
 class MealsRepositories {
 
@@ -21,7 +22,9 @@ class MealsRepositories {
      * @param  int  $dietPlanType, $numberOfMeals
      * @return $dietPlanType saved in the Db
      */
-    public function makePlan($dietPlanType, $numberOfMeals) {
+    public function makePlan($dietPlanType, $numberOfMeals, $allergies) {
+
+
         $sessionCaloriesPerWeek = Session::get('result');
         $userId = Auth::user()->id;
         $weeks = sizeof($sessionCaloriesPerWeek);
@@ -37,7 +40,13 @@ class MealsRepositories {
         $date = new DateTime($dateModified);
 
         $saveDataPlan->save();
-
+        foreach ($allergies as $userAllergies) {
+            $userAllergiesFood = new UserAllergies();
+            $userAllergiesFood->user_id = $userId;
+            $userAllergiesFood->allergies_id = $userAllergies;
+            $userAllergiesFood->meal_plan_id = $saveDataPlan['id'];
+            $userAllergiesFood->save();
+        }
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
             $saveDataWeeksPlan = new DietWeeksPlan();

@@ -14,20 +14,21 @@ use Repositories\Meals\MealsRepositories;
  */
 class MealsService {
 
-    public function makeBreakfast(Request $request, MealsRepositories $mealsRepo) {
-        $numberOfMeals = $request->nummeals;
-        $dietPlanType = $request->planType;
-
-
-        $makeBreakfast = $mealsRepo->makePlan($dietPlanType, $numberOfMeals);
-
-        return $makeBreakfast;
-    }
+//    public function makeBreakfast(Request $request, MealsRepositories $mealsRepo) {
+//        $numberOfMeals = $request->nummeals;
+//        $dietPlanType = $request->planType;
+//        $allergies= $request->allergies;
+//
+//        $makeBreakfast = $mealsRepo->makePlan($dietPlanType, $numberOfMeals,$allergies);
+//
+//        return $makeBreakfast;
+//    }
 
     public function makeMealsTable(Request $request, MealsRepositories $mealsRepo) {
         $numberOfMeals = $request->nummeals;
         $dietPlanType = $request->planType;
-        $makeDietPlan = $mealsRepo->makePlan($dietPlanType, $numberOfMeals);
+         $allergies= $request->input('allergies');
+        $makeDietPlan = $mealsRepo->makePlan($dietPlanType, $numberOfMeals,$allergies);
         $makeDietPlanTable = $mealsRepo->getDatesForPlan($makeDietPlan);
         return $makeDietPlanTable;
     }

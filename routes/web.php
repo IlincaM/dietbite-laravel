@@ -27,3 +27,4 @@ Route::post('/calculate', 'BmrController@storeBmrCalculation');
 Route::post('/get-meals', 'GetMealsController@store');
 Route::get('/get-meals', 'GetMealsController@listData');
 Route::get('/chart', 'ChartsController@showChart');
+Route::get('/foods-exception', 'GetMealsController@foodException');

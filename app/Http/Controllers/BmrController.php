@@ -8,12 +8,16 @@ use Repositories\Bmr\BmrResultRepository;
 use Repositories\Bmr\BmrInterface;
 use App\Http\Requests\StoreBmrResult;
 use Khill\Lavacharts\Lavacharts;
+use App\models\entities\Allergies;
 
 class BmrController extends Controller {
 
     public function index() {
         $data = new BmrService();
-        return view('layouts.index')->with('data', $data->getDataFormBmr());
+        $allergies= Allergies::all();
+
+             return view('layouts.index', ['allergies' => $allergies , 'data' => $data->getDataFormBmr()]);
+
     }
 
     public function storeBmrCalculation(StoreBmrResult $request, BmrService $bmrService) {

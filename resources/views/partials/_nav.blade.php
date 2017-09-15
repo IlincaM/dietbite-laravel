@@ -29,7 +29,10 @@
                     <a class="nav-link" href="/">Calories Calculator <span class="sr-only">(current)</span></a>
 
                 </li>
-               
+                <li class="nav-item ">
+                    <a class="nav-link" href="/foods-exception">Foods Exceptions</a>
+
+                </li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                 <li class="hidden"><a href="{{ route('login') }}">Login</a></li>
