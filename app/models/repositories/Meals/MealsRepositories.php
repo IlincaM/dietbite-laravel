@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use DateTime;
 use App\models\entities\UserAllergies;
+use Repositories\Food\FoodQueriesRepositories;
 
 class MealsRepositories {
 
@@ -40,13 +41,13 @@ class MealsRepositories {
         $date = new DateTime($dateModified);
 
         $saveDataPlan->save();
-        foreach ($allergies as $userAllergies) {
-            $userAllergiesFood = new UserAllergies();
-            $userAllergiesFood->user_id = $userId;
-            $userAllergiesFood->allergies_id = $userAllergies;
-            $userAllergiesFood->meal_plan_id = $saveDataPlan['id'];
-            $userAllergiesFood->save();
-        }
+//        foreach ($allergies as $userAllergies) {
+//            $userAllergiesFood = new UserAllergies();
+//            $userAllergiesFood->user_id = $userId;
+//            $userAllergiesFood->allergies_id = $userAllergies;
+//            $userAllergiesFood->meal_plan_id = $saveDataPlan['id'];
+//            $userAllergiesFood->save();
+//        }
         $findWeekIds = [];
         foreach ($sessionCaloriesPerWeek as $key => $value) {
             $saveDataWeeksPlan = new DietWeeksPlan();
@@ -80,7 +81,7 @@ class MealsRepositories {
                 //TODO !!!!!!!!!!!! BIND PARAMETERS !!!! 
 
                 if ($numberOfMeals == 1) {
-                    $query = $this->makeBreakfastMeal($divideCalories, $numberOfMeals);
+                    $query = $this->makeBreakfastMeal($divideCalories, $numberOfMeals, $dateToSave);
                 } elseif ($numberOfMeals == 2) {
 
 
@@ -132,30 +133,215 @@ class MealsRepositories {
         return $saveDataPlan;
     }
 
+//    public function userAllergies(){
+//        $userAllergies[]= new UserAllergies();
+//        return $userAllergies[];
+//        $query = DB::select("SELECT allergies_id"
+//                        . " FROM user-allergies"
+//                        . " LEFT JOIN diet_plans ON diet_plans.id=user-allergies.meal_plan_id "
+//                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
+//                        . " JOIN (select @cumSum := 0.0) B "
+//                        . " WHERE @cumSum < $divideCalories "
+//                        . " AND FD_GROUP.FdGrp_CD=0100"
+//                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+//    }
+
     /**
      * Make breakfast meal. The meals are selected from the food group 0100 .
      * @param  int  $divideCalories, $numberOfMeals
      * @return $query
      */
-    public function makeBreakfastMeal($divideCalories, $numberOfMeals) {
+    public function makeBreakfastMeal($divideCalories, $numberOfMeals, $dateToSave) {
+        $list = [];
+        $name = "breakfast";
+        $makeBreakfast = new FoodQueriesRepositories($list);
+        dump($makeBreakfast);
+        $setNameMeal = $makeBreakfast->setName($name);
+        $getNameMeal = $makeBreakfast->getName($setNameMeal);
+        dump($getNameMeal);
+
+        $listForBreakfast = $makeBreakfast->getList($getNameMeal);
+        echo 'getlist';
+        dump($listForBreakfast);
+        die();
+        //        $list = [['1', '3', '5', '10'],[3,4]];
+//        echo 'ss';
+//        dump($list[0]);
+//        die();
+//        $calories = 0;
+//        dump($dateToSave);
+//        $dateArray = date_parse_from_format('Y-m-d', $dateToSave->date);
+//        dump($dateArray);
+//        $dateObject= (object) $dateArray;
+//        dump($dateObject->day);
+//        
+//
+//        die();
+        //random values from the list
+        $shuffleList = $makeBreakfast->shuffle_assoc($list);
+        dump($shuffleList);
+        $j = 0;
+        $result = [];
+        for ($i = 0; $i < count($shuffleList); $i++) {
+            if ($j <= $i && $calories < 500) {
+
+                $limit = $makeBreakfast->searchLimit($shuffleList[$i]);
+                $meal = $makeBreakfast->generalFoodQuery($limit, $shuffleList[$i], $calories, $divideCalories);
+                dump($shuffleList[$i]);
+                $lastFoodFromArray = end($meal);
+                $result = array_merge($result, $meal);
+
+                $calories = $lastFoodFromArray->CumSum;
+
+                $j++;
+            } else {
+                $result;
+            }
+        }
+        dump($calories);
+        echo 'result';
+        dump($result);
+
+        if ($calories > 500) {
+            foreach ($result as $resultKey => $resultValue) {
+
+                $values = $resultValue->CumSum;
+                dump($resultKey);
+                dump($values);
+                if ($values > 500) {
+                    unset($result[$resultKey]);
+                }
+            }
+//            array_pop($result);
+        } else {
+            $result;
+        }
+        echo "res";
+        dump($result);
+        die();
 
 
-        $query = DB::select("SELECT ABBREV.NDB_No,FD_GROUP.FdGrp_CD"
-                        . " ,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)"
-                        . " AS cumSum"
-                        . " FROM ABBREV"
-                        . " LEFT JOIN FOOD_DES ON FOOD_DES.NDB_No=ABBREV.NDB_No "
-                        . " LEFT JOIN  FD_GROUP ON FD_GROUP.FdGrp_CD=FOOD_DES.FdGrp_Cd"
-                        . " JOIN (select @cumSum := 0.0) B "
-                        . " WHERE @cumSum < $divideCalories "
-                        . " AND FD_GROUP.FdGrp_CD=0100"
-                        . " AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV ))");
+        $lastFoodFromArray = end($meal);
 
-        foreach ($query as $q) {
-            $q->meal_time_id = 1;
+
+        $nextValueList = next($shuffleList);
+
+
+        $limit = $makeBreakfast->searchLimit($firstValueList);
+        $meal = $makeBreakfast->generalFoodQuery($limit, $firstValueList, $calories, $divideCalories);
+        dump($meal);
+
+        $calories = $makeBreakfast->getTheLastFood($meal)->CumSum;
+
+
+        dump($calories);
+        if ($calories < $divideCalories) {
+            if ($makeBreakfast->has_next($list)) {
+                $limit = $makeBreakfast->searchLimit($nextValueList);
+                echo "second list";
+                dump($limit);
+
+                $nextMeal = $makeBreakfast->generalFoodQuery($limit, $nextValueList, $calories, $divideCalories);
+                $resultMeal = array_merge($meal, $nextMeal);
+                dump($resultMeal);
+                $lastFoodFromArray = end($resultMeal);
+                $calories = $lastFoodFromArray->CumSum;
+            } else {
+                $resultMeal = $meal;
+            }
+        }
+        echo 'calories';
+        dump($calories);
+        if ($calories < 2000) {
+            $makeBreakfast->has_next($list);
+            $nextValueList = next($shuffleList);
+
+            $limit = $makeBreakfast->searchLimit($nextValueList);
+            dump($nextValueList);
         }
 
 
+        die();
+        foreach ($meal as $m) {
+            dump($m->CumSum);
+
+            if ($m->CumSum < 500) {
+                $makeBreakfast->has_next($list);
+                $meal2 = $makeBreakfast->generalFoodQuery($limit, 2, $calories, $divideCalories);
+            }
+        }
+
+
+        die();
+        $x = DB::table('FD_SUBGROUP')->select('limit')->where('id', 1)->first();
+        $y = $x->limit;
+        dump($y);
+        die();
+
+        $queryEggs = DB::select("SELECT food.NDB_No, ABBREV.Energ_Kcal, food.FdSubgrp_id,food.Shrt_Desc
+        FROM food
+        LEFT JOIN ABBREV ON ABBREV.NDB_No = food.NDB_No
+        LEFT JOIN FD_GROUP ON FD_GROUP.FdGrp_CD = food.FdGrp_Cd
+        LEFT JOIN FD_SUBGROUP ON FD_GROUP.FdGrp_CD = FD_SUBGROUP.FdGrp_Cd
+        WHERE
+        (food.FdSubgrp_id = 1)
+
+        AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV))
+        LIMIT 3");
+
+
+        $runningSum = 0;
+        foreach ($queryEggs as $q) {
+            $q->meal_time_id = 1;
+            $runningSum += $q->Energ_Kcal;
+            $total = $runningSum;
+        }
+
+        if ($total < $divideCalories) {
+            $query2Cheese = DB::select("SELECT food.NDB_No, ABBREV.Energ_Kcal, food.FdSubgrp_id,food.Shrt_Desc,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)  AS CumSum
+        FROM food
+        LEFT JOIN ABBREV ON ABBREV.NDB_No = food.NDB_No
+        LEFT JOIN FD_GROUP ON FD_GROUP.FdGrp_CD = food.FdGrp_Cd
+        LEFT JOIN FD_SUBGROUP ON FD_GROUP.FdGrp_CD = FD_SUBGROUP.FdGrp_Cd
+        JOIN (select @cumSum := $total) B
+        WHERE @cumSum <  $divideCalories
+        AND
+        (food.FdSubgrp_id = 3)
+
+        AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV))
+        LIMIT 1");
+
+            foreach ($query2Cheese as $q) {
+                $q->meal_time_id = 1;
+            }
+
+            $endCumSumCheese = $endCumSum->CumSum;
+            dump($endCumSumCheese);
+        }
+        if ($endCumSumCheese < $divideCalories) {
+            $query3Ham = DB::select("SELECT food.NDB_No, ABBREV.Energ_Kcal, food.FdSubgrp_id,food.Shrt_Desc,( @cumSum:= @cumSum + ABBREV.Energ_Kcal)  AS CumSum
+        FROM food
+        LEFT JOIN ABBREV ON ABBREV.NDB_No = food.NDB_No
+        LEFT JOIN FD_GROUP ON FD_GROUP.FdGrp_CD = food.FdGrp_Cd
+        LEFT JOIN FD_SUBGROUP ON FD_GROUP.FdGrp_CD = FD_SUBGROUP.FdGrp_Cd
+        JOIN (select @cumSum := $endCumSumCheese) B
+        WHERE @cumSum <  $divideCalories
+        AND
+        (food.FdSubgrp_id = 10)
+
+        AND ABBREV.NDB_No >= ROUND(RAND()*(SELECT MAX(NDB_No) FROM ABBREV))
+        LIMIT 3");
+            foreach ($query2Cheese as $q) {
+                $q->meal_time_id = 1;
+            }
+            dump($query3Ham);
+        }
+
+
+
+
+
+        die();
         return $query;
     }
 

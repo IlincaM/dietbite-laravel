@@ -35,10 +35,10 @@
                 </li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                <li class="hidden"><a href="{{ route('login') }}">Login</a></li>
-                <li class="hidden"><a href="{{ route('register') }}">Register</a></li>
+                <li class=""><a href="{{ route('login') }}">Login</a></li>
+                <li class=""><a href="{{ route('register') }}">Register</a></li>
                 @else
-                <li class="dropdown hidden">
+                <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
